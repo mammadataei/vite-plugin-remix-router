@@ -1,0 +1,62 @@
+{
+  "name": "vite-plugin-react-routes",
+  "version": "0.1.0",
+  "description": "File system routing for React and Vite",
+  "author": "Mohammad Ataei",
+  "license": "MIT",
+  "keywords": [
+    "vite-plugin",
+    "react-router",
+    "react",
+    "routes",
+    "router",
+    "vite"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mammadataei/vite-plugin-react-routes/"
+  },
+  "bugs": {
+    "url": "https://github.com/mammadataei/vite-plugin-react-routes/issues"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest",
+    "style": "prettier --write . && pnpm lint",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^7.0.0",
+    "lint-staged": "^12.1.2",
+    "prettier": "2.5.0",
+    "tsup": "^5.10.0",
+    "typescript": "^4.5.2",
+    "vite": "^2.7.13",
+    "vitest": "^0.2.0"
+  }
+}
