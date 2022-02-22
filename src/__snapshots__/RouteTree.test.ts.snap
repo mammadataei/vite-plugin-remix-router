@@ -1,0 +1,88 @@
+// Vitest Snapshot v1
+
+exports[`should match snapshot 1`] = `
+RouteNode {
+  "children": [
+    RouteNode {
+      "children": [],
+      "name": "[...all]",
+      "path": "example/src/pages/[...all].tsx",
+    },
+    RouteNode {
+      "children": [],
+      "name": "_layout",
+      "path": "example/src/pages/_layout.tsx",
+    },
+    RouteNode {
+      "children": [],
+      "name": "about",
+      "path": "example/src/pages/about.tsx",
+    },
+    RouteNode {
+      "children": [],
+      "name": "index",
+      "path": "example/src/pages/index.tsx",
+    },
+    RouteNode {
+      "children": [
+        RouteNode {
+          "children": [],
+          "name": "[slug]",
+          "path": "example/src/pages/posts/[slug].tsx",
+        },
+        RouteNode {
+          "children": [],
+          "name": "index",
+          "path": "example/src/pages/posts/index.tsx",
+        },
+      ],
+      "name": "posts",
+      "path": "example/src/pages/posts",
+    },
+    RouteNode {
+      "children": [
+        RouteNode {
+          "children": [
+            RouteNode {
+              "children": [],
+              "name": "_layout",
+              "path": "example/src/pages/users/[user]/_layout.tsx",
+            },
+            RouteNode {
+              "children": [],
+              "name": "index",
+              "path": "example/src/pages/users/[user]/index.tsx",
+            },
+            RouteNode {
+              "children": [],
+              "name": "profile",
+              "path": "example/src/pages/users/[user]/profile.tsx",
+            },
+            RouteNode {
+              "children": [],
+              "name": "settings",
+              "path": "example/src/pages/users/[user]/settings.tsx",
+            },
+          ],
+          "name": "[user]",
+          "path": "example/src/pages/users/[user]",
+        },
+        RouteNode {
+          "children": [],
+          "name": "_layout",
+          "path": "example/src/pages/users/_layout.tsx",
+        },
+        RouteNode {
+          "children": [],
+          "name": "index",
+          "path": "example/src/pages/users/index.tsx",
+        },
+      ],
+      "name": "users",
+      "path": "example/src/pages/users",
+    },
+  ],
+  "name": "/",
+  "path": "example/src/pages",
+}
+`;

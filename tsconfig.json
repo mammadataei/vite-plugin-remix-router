@@ -15,6 +15,6 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src", "client.d.ts"],
+  "exclude": ["node_modules", "dist", "example"]
 }

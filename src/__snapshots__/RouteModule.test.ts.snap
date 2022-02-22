@@ -1,0 +1,128 @@
+// Vitest Snapshot v1
+
+exports[`should match route modules snapshot 1`] = `
+"import React from 'react';
+
+export const routes = [{
+  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/_layout.tsx\\"))),
+  \\"path\\": \\"/\\",
+  \\"children\\": [
+    {
+      \\"path\\": \\"*\\",
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/[...all].tsx\\")))
+    },
+    {
+      \\"path\\": \\"about\\",
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\")))
+    },
+    {
+      \\"index\\": true,
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/index.tsx\\")))
+    },
+    {
+      \\"path\\": \\"posts\\",
+      \\"children\\": [
+        {
+          \\"path\\": \\":slug\\",
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/[slug].tsx\\")))
+        },
+        {
+          \\"index\\": true,
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/index.tsx\\")))
+        }
+      ]
+    },
+    {
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/_layout.tsx\\"))),
+      \\"path\\": \\"users\\",
+      \\"children\\": [
+        {
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/_layout.tsx\\"))),
+          \\"path\\": \\":user\\",
+          \\"children\\": [
+            {
+              \\"index\\": true,
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/index.tsx\\")))
+            },
+            {
+              \\"path\\": \\"profile\\",
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/profile.tsx\\")))
+            },
+            {
+              \\"path\\": \\"settings\\",
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/settings.tsx\\")))
+            }
+          ]
+        },
+        {
+          \\"index\\": true,
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/index.tsx\\")))
+        }
+      ]
+    }
+  ]
+}]
+"
+`;
+
+exports[`should match routes snapshot 1`] = `
+{
+  "children": [
+    {
+      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/[...all].tsx\\")))::",
+      "path": "*",
+    },
+    {
+      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\")))::",
+      "path": "about",
+    },
+    {
+      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/index.tsx\\")))::",
+      "index": true,
+    },
+    {
+      "children": [
+        {
+          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/[slug].tsx\\")))::",
+          "path": ":slug",
+        },
+        {
+          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/index.tsx\\")))::",
+          "index": true,
+        },
+      ],
+      "path": "posts",
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/index.tsx\\")))::",
+              "index": true,
+            },
+            {
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/profile.tsx\\")))::",
+              "path": "profile",
+            },
+            {
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/settings.tsx\\")))::",
+              "path": "settings",
+            },
+          ],
+          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/_layout.tsx\\")))::",
+          "path": ":user",
+        },
+        {
+          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/index.tsx\\")))::",
+          "index": true,
+        },
+      ],
+      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/_layout.tsx\\")))::",
+      "path": "users",
+    },
+  ],
+  "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/_layout.tsx\\")))::",
+  "path": "/",
+}
+`;
