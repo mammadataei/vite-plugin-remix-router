@@ -30,3 +30,9 @@ export default function () {
     </div>
   )
 }
+
+export function getRouteConfig() {
+  return {
+    name: 'posts',
+  }
+}

@@ -2,6 +2,10 @@
 
 exports[`should match route modules snapshot 1`] = `
 "import React from 'react';
+import { getRouteConfig as example_src_pages_about_ROUTE_CONFIG } from '/example/src/pages/about.tsx';
+import { getRouteConfig as example_src_pages_index_ROUTE_CONFIG } from '/example/src/pages/index.tsx';
+import { getRouteConfig as example_src_pages_posts_index_ROUTE_CONFIG } from '/example/src/pages/posts/index.tsx';
+import { getRouteConfig as example_src_pages_users__layout_ROUTE_CONFIG } from '/example/src/pages/users/_layout.tsx';
 
 export const routes = [{
   \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/_layout.tsx\\"))),
@@ -13,11 +17,13 @@ export const routes = [{
     },
     {
       \\"path\\": \\"about\\",
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\")))
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\"))),
+      \\"getRouteConfig\\": example_src_pages_about_ROUTE_CONFIG
     },
     {
       \\"index\\": true,
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/index.tsx\\")))
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/index.tsx\\"))),
+      \\"getRouteConfig\\": example_src_pages_index_ROUTE_CONFIG
     },
     {
       \\"path\\": \\"posts\\",
@@ -28,13 +34,15 @@ export const routes = [{
         },
         {
           \\"index\\": true,
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/index.tsx\\")))
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/index.tsx\\"))),
+          \\"getRouteConfig\\": example_src_pages_posts_index_ROUTE_CONFIG
         }
       ]
     },
     {
       \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/_layout.tsx\\"))),
       \\"path\\": \\"users\\",
+      \\"getRouteConfig\\": example_src_pages_users__layout_ROUTE_CONFIG,
       \\"children\\": [
         {
           \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/_layout.tsx\\"))),
@@ -62,7 +70,16 @@ export const routes = [{
     }
   ]
 }]
-"
+
+export function traverse(routes, callback) {
+  return routes.map((route) => {
+    const modifiedRouteObject = callback(route);
+    if (route.children) {
+      modifiedRouteObject.children = traverse(route.children, callback);
+    }
+    return modifiedRouteObject;
+  });
+}"
 `;
 
 exports[`should match routes snapshot 1`] = `
@@ -74,10 +91,12 @@ exports[`should match routes snapshot 1`] = `
     },
     {
       "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\")))::",
+      "getRouteConfig": "::example_src_pages_about_ROUTE_CONFIG::",
       "path": "about",
     },
     {
       "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/index.tsx\\")))::",
+      "getRouteConfig": "::example_src_pages_index_ROUTE_CONFIG::",
       "index": true,
     },
     {
@@ -88,6 +107,7 @@ exports[`should match routes snapshot 1`] = `
         },
         {
           "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/index.tsx\\")))::",
+          "getRouteConfig": "::example_src_pages_posts_index_ROUTE_CONFIG::",
           "index": true,
         },
       ],
@@ -119,6 +139,7 @@ exports[`should match routes snapshot 1`] = `
         },
       ],
       "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/_layout.tsx\\")))::",
+      "getRouteConfig": "::example_src_pages_users__layout_ROUTE_CONFIG::",
       "path": "users",
     },
   ],

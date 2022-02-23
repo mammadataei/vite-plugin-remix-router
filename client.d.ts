@@ -1,5 +1,4 @@
 declare module 'virtual:routes' {
-  import type { RouteObject } from 'react-router-dom'
-
-  export const routes: RouteObject[]
+  export const routes: Array<import('./src/types').ExtendedRouteObject>
+  export const traverse: typeof import('./src/traverse').traverse
 }
