@@ -14,8 +14,11 @@ export function traverse<
   return routes.map((route) => {
     const modifiedRouteObject = callback(route)
 
-    if (route.children) {
-      modifiedRouteObject.children = traverse(route.children, callback)
+    if (modifiedRouteObject.children) {
+      modifiedRouteObject.children = traverse(
+        modifiedRouteObject.children,
+        callback,
+      )
     }
 
     return modifiedRouteObject

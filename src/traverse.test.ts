@@ -1,12 +1,12 @@
 import { RouteObject } from 'react-router-dom'
 import { traverse } from './traverse'
 
-it('should traverse routes and call callback on each route object', () => {
-  interface RouteConfig {
-    name?: string
-    auth?: boolean
-  }
+interface RouteConfig {
+  name?: string
+  auth?: boolean
+}
 
+it('should traverse routes and call callback on each route object', () => {
   const routes = [
     {
       path: '/',
@@ -58,6 +58,55 @@ it('should traverse routes and call callback on each route object', () => {
             {
               path: 'user',
               children: [{ name: 'profile', path: 'profile' }],
+            },
+          ],
+        },
+      ],
+    },
+  ])
+})
+
+it('should be possible to wrap route with multiple children', () => {
+  const routes = [
+    {
+      path: '/',
+      children: [
+        {
+          path: 'user',
+          getRouteConfig: (): RouteConfig => ({ auth: true }),
+          children: [{ path: 'account' }, { path: 'profile' }],
+        },
+      ],
+    },
+  ]
+
+  const result = traverse<RouteConfig, RouteConfig & RouteObject>(
+    routes,
+    (route) => {
+      const { getRouteConfig, ...routeObject } = route
+
+      const routeConfig = getRouteConfig?.()
+
+      if (routeConfig?.auth) {
+        return {
+          element: 'Middleware',
+          children: [routeObject],
+        }
+      }
+      return routeObject
+    },
+  )
+
+  expect(result).toEqual([
+    {
+      path: '/',
+      children: [
+        {
+          element: 'Middleware',
+          children: [
+            {
+              path: 'user',
+              children: [{ path: 'account' }, { path: 'profile' }],
             },
           ],
         },

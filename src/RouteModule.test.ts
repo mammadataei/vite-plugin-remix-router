@@ -103,8 +103,8 @@ it('should add import for page getRouteConfig if exists', () => {
     export function traverse(routes, callback) {
       return routes.map((route) => {
         const modifiedRouteObject = callback(route);
-        if (route.children) {
-          modifiedRouteObject.children = traverse(route.children, callback);
+        if (modifiedRouteObject.children) {
+          modifiedRouteObject.children = traverse(modifiedRouteObject.children, callback);
         }
         return modifiedRouteObject;
       });
@@ -141,8 +141,8 @@ it('should add import for `_layout` getRouteConfig if exists', () => {
     export function traverse(routes, callback) {
       return routes.map((route) => {
         const modifiedRouteObject = callback(route);
-        if (route.children) {
-          modifiedRouteObject.children = traverse(route.children, callback);
+        if (modifiedRouteObject.children) {
+          modifiedRouteObject.children = traverse(modifiedRouteObject.children, callback);
         }
         return modifiedRouteObject;
       });
@@ -168,8 +168,8 @@ it('should generate routes module', () => {
     export function traverse(routes, callback) {
       return routes.map((route) => {
         const modifiedRouteObject = callback(route);
-        if (route.children) {
-          modifiedRouteObject.children = traverse(route.children, callback);
+        if (modifiedRouteObject.children) {
+          modifiedRouteObject.children = traverse(modifiedRouteObject.children, callback);
         }
         return modifiedRouteObject;
       });
