@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-react-fsr",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "File system routing for React and Vite",
   "author": "Mohammad Ataei",
   "license": "MIT",
