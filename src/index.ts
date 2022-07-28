@@ -10,7 +10,7 @@ export default function Plugin(userOptions?: UserOptions): Plugin {
   let context: Context
 
   return {
-    name: 'vite-plugin-react-fsr',
+    name: 'vite-plugin-remix-router',
     enforce: 'pre',
 
     configResolved({ root }) {
