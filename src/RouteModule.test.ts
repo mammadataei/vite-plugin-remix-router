@@ -93,18 +93,21 @@ it('should add import for page getRouteConfig if exists', () => {
   expect(routeModule).toMatchInlineSnapshot(`
     "import React from 'react';
     import { getRouteConfig as example_src_pages_about_ROUTE_CONFIG } from '/example/src/pages/about.tsx';
-    
+
     export const routes = [{
       \\"path\\": \\"about\\",
       \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\"))),
       \\"getRouteConfig\\": example_src_pages_about_ROUTE_CONFIG
     }]
-    
+
     export function traverse(routes, callback) {
       return routes.map((route) => {
         const modifiedRouteObject = callback(route);
         if (modifiedRouteObject.children) {
-          modifiedRouteObject.children = traverse(modifiedRouteObject.children, callback);
+          modifiedRouteObject.children = traverse(
+            modifiedRouteObject.children,
+            callback
+          );
         }
         return modifiedRouteObject;
       });
@@ -125,7 +128,7 @@ it('should add import for `_layout` getRouteConfig if exists', () => {
   expect(routeModule).toMatchInlineSnapshot(`
     "import React from 'react';
     import { getRouteConfig as example_src_pages_users__layout_ROUTE_CONFIG } from '/example/src/pages/users/_layout.tsx';
-    
+
     export const routes = [{
       \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/_layout.tsx\\"))),
       \\"path\\": \\"users\\",
@@ -137,12 +140,15 @@ it('should add import for `_layout` getRouteConfig if exists', () => {
         }
       ]
     }]
-    
+
     export function traverse(routes, callback) {
       return routes.map((route) => {
         const modifiedRouteObject = callback(route);
         if (modifiedRouteObject.children) {
-          modifiedRouteObject.children = traverse(modifiedRouteObject.children, callback);
+          modifiedRouteObject.children = traverse(
+            modifiedRouteObject.children,
+            callback
+          );
         }
         return modifiedRouteObject;
       });
@@ -158,18 +164,21 @@ it('should generate routes module', () => {
   expect(routeModule).toMatchInlineSnapshot(`
     "import React from 'react';
     import { getRouteConfig as example_src_pages_about_ROUTE_CONFIG } from '/example/src/pages/about.tsx';
-    
+
     export const routes = [{
       \\"path\\": \\"about\\",
       \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\"))),
       \\"getRouteConfig\\": example_src_pages_about_ROUTE_CONFIG
     }]
-    
+
     export function traverse(routes, callback) {
       return routes.map((route) => {
         const modifiedRouteObject = callback(route);
         if (modifiedRouteObject.children) {
-          modifiedRouteObject.children = traverse(modifiedRouteObject.children, callback);
+          modifiedRouteObject.children = traverse(
+            modifiedRouteObject.children,
+            callback
+          );
         }
         return modifiedRouteObject;
       });

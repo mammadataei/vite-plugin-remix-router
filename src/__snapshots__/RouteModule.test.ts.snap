@@ -75,7 +75,10 @@ export function traverse(routes, callback) {
   return routes.map((route) => {
     const modifiedRouteObject = callback(route);
     if (modifiedRouteObject.children) {
-      modifiedRouteObject.children = traverse(modifiedRouteObject.children, callback);
+      modifiedRouteObject.children = traverse(
+        modifiedRouteObject.children,
+        callback
+      );
     }
     return modifiedRouteObject;
   });
