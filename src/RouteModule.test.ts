@@ -1,5 +1,5 @@
 import { RouteModule } from './RouteModule'
-import { RouteNode, RouteTree } from './RouteTree'
+import { buildRouteTree, RouteNode } from './buildRouteTree'
 
 const options = {
   root: process.cwd(),
@@ -187,13 +187,13 @@ it('should generate routes module', () => {
 })
 
 it('should match routes snapshot', () => {
-  const routeTree = new RouteTree(options).build()
+  const routeTree = buildRouteTree(options)
   const routes = routeModuleGenerator.buildRouteObject(routeTree)
   expect(routes).toMatchSnapshot()
 })
 
 it('should match route modules snapshot', () => {
-  const routeTree = new RouteTree(options).build()
+  const routeTree = buildRouteTree(options)
   routeModuleGenerator.buildRouteObject(routeTree)
   const routesModule = routeModuleGenerator.generate()
   expect(routesModule).toMatchSnapshot()

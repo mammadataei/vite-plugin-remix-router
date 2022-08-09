@@ -1,7 +1,7 @@
 import path from 'path'
 import { normalizePath, ViteDevServer } from 'vite'
 import { Options, ResolvedOptions, UserOptions } from './types'
-import { RouteTree } from './RouteTree'
+import { buildRouteTree, RouteNode } from './buildRouteTree'
 import { RouteModule } from './RouteModule'
 import { RESOLVED_VIRTUAL_MODULE_ID } from './constants'
 
@@ -15,7 +15,7 @@ export class Context {
 
   private server: ViteDevServer | undefined
 
-  private routeTree: RouteTree
+  private routeTree: RouteNode
 
   private routeModule: RouteModule
 
@@ -26,11 +26,10 @@ export class Context {
       ...userOptions,
     }
 
-    this.routeTree = new RouteTree(this.options)
     this.routeModule = new RouteModule(this.options)
 
-    this.routeTree.build()
-    this.routeModule.buildRouteObject(this.routeTree.root)
+    this.routeTree = buildRouteTree(this.options)
+    this.routeModule.buildRouteObject(this.routeTree)
   }
 
   configureServer(server: ViteDevServer) {
@@ -39,8 +38,8 @@ export class Context {
     this.server.watcher.on('unlink', (filePath) => {
       if (!this.isTarget(filePath)) return
 
-      this.routeTree.rebuild()
-      this.routeModule.buildRouteObject(this.routeTree.root)
+      this.routeTree = buildRouteTree(this.options)
+      this.routeModule.buildRouteObject(this.routeTree)
       this.invalidateRoutesModule()
       this.reloadServer()
     })
@@ -48,8 +47,8 @@ export class Context {
     this.server.watcher.on('add', (filePath) => {
       if (!this.isTarget(filePath)) return
 
-      this.routeTree.rebuild()
-      this.routeModule.buildRouteObject(this.routeTree.root)
+      this.routeTree = buildRouteTree(this.options)
+      this.routeModule.buildRouteObject(this.routeTree)
       this.invalidateRoutesModule()
       this.reloadServer()
     })
@@ -57,7 +56,7 @@ export class Context {
     this.server.watcher.on('change', (filePath) => {
       if (!this.isTarget(filePath)) return
 
-      this.routeModule.buildRouteObject(this.routeTree.root)
+      this.routeModule.buildRouteObject(this.routeTree)
       this.invalidateRoutesModule()
       this.reloadServer()
     })

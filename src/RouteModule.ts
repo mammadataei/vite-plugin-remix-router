@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { ResolvedOptions } from './types'
 import { RouteObject } from 'react-router-dom'
-import type { RouteNode } from './RouteTree'
+import type { RouteNode } from './buildRouteTree'
 import { isDirectory, normalizeFilenameToRoute } from './utils'
 import { traverse } from './traverse'
 

@@ -1,24 +1,24 @@
-import { RouteNode, RouteTree } from './RouteTree'
+import { buildRouteTree, RouteNode } from './buildRouteTree'
 import { expect } from 'vitest'
 
-const routeTree = new RouteTree({
+const options = {
   root: process.cwd(),
   extensions: ['tsx', 'jsx'],
   pageDir: 'example/src/pages',
-})
+}
 
-routeTree.build()
+const root = buildRouteTree(options)
 
 it('should scan the pages directory and generate the routeTree', () => {
-  expect(routeTree.root).toBeInstanceOf(RouteNode)
-  expect(routeTree.root.name).toEqual('/')
-  expect(routeTree.root.path).toEqual('example/src/pages')
+  expect(root).toBeInstanceOf(RouteNode)
+  expect(root.name).toEqual('/')
+  expect(root.path).toEqual('example/src/pages')
 })
 
 it('should generate children nodes of the root', () => {
-  expect(routeTree.root.children).toHaveLength(6)
+  expect(root.children).toHaveLength(6)
 
-  const children = routeTree.root.children.map((child) => child.name)
+  const children = root.children.map((child) => child.name)
   expect(children).toEqual([
     '[...all]',
     '_layout',
@@ -30,9 +30,7 @@ it('should generate children nodes of the root', () => {
 })
 
 it('should recursively generate children nodes for each directory', () => {
-  const directories = routeTree.root.children.filter(
-    (child) => child.children.length > 0,
-  )
+  const directories = root.children.filter((child) => child.children.length > 0)
 
   expect(directories).toHaveLength(2)
   const [posts, users] = directories
@@ -51,22 +49,15 @@ it('should recursively generate children nodes for each directory', () => {
 })
 
 it('should exclude files which are not in the extensions list', () => {
-  const ignored = routeTree.root.children.find(
-    (child) => child.name === 'ignored',
-  )
+  const ignored = root.children.find((child) => child.name === 'ignored')
   expect(ignored).toBeUndefined()
 
-  const posts = routeTree.root.children.find((child) => child.name === 'posts')
+  const posts = root.children.find((child) => child.name === 'posts')
 
   const ignoredJson = posts?.children.find((child) => child.name === 'ignored')
   expect(ignoredJson).toBeUndefined()
 })
 
-it('should be able to rebuild the routeTree', () => {
-  const oldTree = routeTree.root
-  expect(oldTree).not.toBe(routeTree.rebuild())
-})
-
 it('should match snapshot', () => {
-  expect(routeTree.root).toMatchSnapshot()
+  expect(root).toMatchSnapshot()
 })
