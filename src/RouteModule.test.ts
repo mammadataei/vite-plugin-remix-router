@@ -16,7 +16,6 @@ it('should convert RouteNode to RouteObject', () => {
   expect(route).toEqual({
     path: 'about',
     element: `::React.createElement(React.lazy(() => import("/${routeNode.path}")))::`,
-    getRouteConfig: '::example_src_pages_about_ROUTE_CONFIG::',
   })
 })
 
@@ -81,109 +80,7 @@ it('should user `_layout` as element for directories', () => {
   expect(route).toEqual({
     path: 'users',
     element: `::React.createElement(React.lazy(() => import("/${routeNode.path}/_layout.tsx")))::`,
-    getRouteConfig: '::example_src_pages_users__layout_ROUTE_CONFIG::',
   })
-})
-
-it('should add import for page getRouteConfig if exists', () => {
-  const routeNode = new RouteNode('example/src/pages/about.tsx')
-  routeModuleGenerator.buildRouteObject(routeNode)
-  const routeModule = routeModuleGenerator.generate()
-
-  expect(routeModule).toMatchInlineSnapshot(`
-    "import React from 'react';
-    import { getRouteConfig as example_src_pages_about_ROUTE_CONFIG } from '/example/src/pages/about.tsx';
-
-    export const routes = [{
-      \\"path\\": \\"about\\",
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\"))),
-      \\"getRouteConfig\\": example_src_pages_about_ROUTE_CONFIG
-    }]
-
-    export function traverse(routes, callback) {
-      return routes.map((route) => {
-        const modifiedRouteObject = callback(route);
-        if (modifiedRouteObject.children) {
-          modifiedRouteObject.children = traverse(
-            modifiedRouteObject.children,
-            callback
-          );
-        }
-        return modifiedRouteObject;
-      });
-    }"
-  `)
-})
-
-it('should add import for `_layout` getRouteConfig if exists', () => {
-  const routeNode = new RouteNode('example/src/pages/users')
-  routeNode.children = [
-    new RouteNode('example/src/pages/users/_layout.tsx'),
-    new RouteNode('example/src/pages/users/index.tsx'),
-  ]
-
-  routeModuleGenerator.buildRouteObject(routeNode)
-  const routeModule = routeModuleGenerator.generate()
-
-  expect(routeModule).toMatchInlineSnapshot(`
-    "import React from 'react';
-    import { getRouteConfig as example_src_pages_users__layout_ROUTE_CONFIG } from '/example/src/pages/users/_layout.tsx';
-
-    export const routes = [{
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/_layout.tsx\\"))),
-      \\"path\\": \\"users\\",
-      \\"getRouteConfig\\": example_src_pages_users__layout_ROUTE_CONFIG,
-      \\"children\\": [
-        {
-          \\"index\\": true,
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/index.tsx\\")))
-        }
-      ]
-    }]
-
-    export function traverse(routes, callback) {
-      return routes.map((route) => {
-        const modifiedRouteObject = callback(route);
-        if (modifiedRouteObject.children) {
-          modifiedRouteObject.children = traverse(
-            modifiedRouteObject.children,
-            callback
-          );
-        }
-        return modifiedRouteObject;
-      });
-    }"
-  `)
-})
-
-it('should generate routes module', () => {
-  const routeNode = new RouteNode('example/src/pages/about.tsx')
-  routeModuleGenerator.buildRouteObject(routeNode)
-  const routeModule = routeModuleGenerator.generate()
-
-  expect(routeModule).toMatchInlineSnapshot(`
-    "import React from 'react';
-    import { getRouteConfig as example_src_pages_about_ROUTE_CONFIG } from '/example/src/pages/about.tsx';
-
-    export const routes = [{
-      \\"path\\": \\"about\\",
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\"))),
-      \\"getRouteConfig\\": example_src_pages_about_ROUTE_CONFIG
-    }]
-
-    export function traverse(routes, callback) {
-      return routes.map((route) => {
-        const modifiedRouteObject = callback(route);
-        if (modifiedRouteObject.children) {
-          modifiedRouteObject.children = traverse(
-            modifiedRouteObject.children,
-            callback
-          );
-        }
-        return modifiedRouteObject;
-      });
-    }"
-  `)
 })
 
 it('should match routes snapshot', () => {

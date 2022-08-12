@@ -1,21 +1,8 @@
-import fs from 'fs'
 import path from 'path'
 import { ResolvedOptions } from './types'
 import { RouteObject } from 'react-router-dom'
 import type { RouteNode } from './buildRouteTree'
 import { isDirectory, normalizeFilenameToRoute } from './utils'
-import { traverse } from './traverse'
-
-const ROUTE_CONFIG_REGEX = /export\s(const|function)\sgetRouteConfig/
-
-function createConfigVariableName(filePath: string) {
-  return (
-    filePath
-      .replace(/\//g, '_')
-      .replace(/\.[^/.]+$/, '')
-      .replace(/^_/, '') + '_ROUTE_CONFIG'
-  )
-}
 
 function createRouteElement(filePath: string) {
   return `::React.createElement(React.lazy(() => import("/${filePath}")))::`
@@ -55,12 +42,10 @@ export class RouteModule {
     const layout = node.children.find((child) => child.name === '_layout')
 
     const element = layout ? { element: createRouteElement(layout.path) } : {}
-    const config = layout ? this.resolveRouteConfig(layout.path) : {}
 
     return {
       ...element,
       path: normalizeFilenameToRoute(node.name),
-      ...config,
       children: node.children
         .filter((child) => child.name !== '_layout')
         .map((child) => this.createRouteObject(child)),
@@ -76,24 +61,7 @@ export class RouteModule {
     return {
       ...path,
       element: createRouteElement(node.path),
-      ...this.resolveRouteConfig(node.path),
     }
-  }
-
-  private resolveRouteConfig(filePath: string) {
-    const code = fs.readFileSync(this.absolutePath(filePath), 'utf8')
-
-    if (ROUTE_CONFIG_REGEX.test(code)) {
-      const variableName = createConfigVariableName(filePath)
-
-      this.imports.push(
-        `import { getRouteConfig as ${variableName} } from '/${filePath}';`,
-      )
-
-      return { getRouteConfig: `::${variableName}::` }
-    }
-
-    return {}
   }
 
   generate() {
@@ -108,7 +76,6 @@ export class RouteModule {
 
     code.push(`export const routes = [${routesString}]\n`)
 
-    code.push(`export ${traverse.toString()}`)
     return code.join('\n')
   }
 }

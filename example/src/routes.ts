@@ -1,20 +1,6 @@
-import { RouteObject, useRoutes } from 'react-router-dom'
-import { routes, traverse } from 'virtual:routes'
-
-interface RouteConfig {
-  name?: string
-  auth?: boolean
-}
+import { useRoutes } from 'react-router-dom'
+import { routes } from 'virtual:routes'
 
 export function Routes() {
-  return useRoutes(
-    traverse<RouteConfig, RouteConfig & RouteObject>(routes, (route) => {
-      const { getRouteConfig, ...routeObject } = route
-
-      return {
-        ...routeObject,
-        ...getRouteConfig?.(),
-      }
-    }),
-  )
+  return useRoutes(routes)
 }

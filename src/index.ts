@@ -3,9 +3,6 @@ import { Context } from './Context'
 import { UserOptions } from './types'
 import { RESOLVED_VIRTUAL_MODULE_ID, VIRTUAL_MODULE_ID } from './constants'
 
-export type { ExtendedRouteObject } from './types'
-export type { traverse } from './traverse'
-
 export default function Plugin(userOptions?: UserOptions): Plugin {
   let context: Context
 
