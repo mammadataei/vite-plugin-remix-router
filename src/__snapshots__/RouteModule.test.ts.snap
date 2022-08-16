@@ -24,7 +24,7 @@ export const routes = [{
       \\"children\\": [
         {
           \\"path\\": \\":slug\\",
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/[slug].tsx\\")))
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/$slug.tsx\\")))
         },
         {
           \\"index\\": true,
@@ -37,20 +37,20 @@ export const routes = [{
       \\"path\\": \\"users\\",
       \\"children\\": [
         {
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/_layout.tsx\\"))),
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/_layout.tsx\\"))),
           \\"path\\": \\":user\\",
           \\"children\\": [
             {
               \\"index\\": true,
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/index.tsx\\")))
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/index.tsx\\")))
             },
             {
               \\"path\\": \\"profile\\",
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/profile.tsx\\")))
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/profile.tsx\\")))
             },
             {
               \\"path\\": \\"settings\\",
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/settings.tsx\\")))
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/settings.tsx\\")))
             }
           ]
         },
@@ -83,7 +83,7 @@ exports[`should match routes snapshot 1`] = `
     {
       "children": [
         {
-          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/[slug].tsx\\")))::",
+          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/$slug.tsx\\")))::",
           "path": ":slug",
         },
         {
@@ -98,19 +98,19 @@ exports[`should match routes snapshot 1`] = `
         {
           "children": [
             {
-              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/index.tsx\\")))::",
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/index.tsx\\")))::",
               "index": true,
             },
             {
-              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/profile.tsx\\")))::",
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/profile.tsx\\")))::",
               "path": "profile",
             },
             {
-              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/settings.tsx\\")))::",
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/settings.tsx\\")))::",
               "path": "settings",
             },
           ],
-          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/[user]/_layout.tsx\\")))::",
+          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/_layout.tsx\\")))::",
           "path": ":user",
         },
         {

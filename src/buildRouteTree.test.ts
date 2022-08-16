@@ -32,13 +32,13 @@ it('should recursively generate children nodes for each directory', () => {
   expect(posts.children).toHaveLength(2)
 
   const postsChildren = posts.children.map((child) => child.name)
-  expect(postsChildren).toEqual(['[slug]', 'index'])
+  expect(postsChildren).toEqual(['$slug', 'index'])
 
   expect(users.name).toEqual('users')
   expect(users.children).toHaveLength(3)
 
   const usersChildren = users.children.map((child) => child.name)
-  expect(usersChildren).toEqual(['[user]', '_layout', 'index'])
+  expect(usersChildren).toEqual(['$user', '_layout', 'index'])
 })
 
 it('should exclude files which are not in the extensions list', () => {

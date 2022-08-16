@@ -15,18 +15,18 @@ it('isCatchAllRoute', () => {
 it('isDynamicRoute', () => {
   expect(isDynamicRoute('')).toBe(false)
   expect(isDynamicRoute('topic')).toBe(false)
-  expect(isDynamicRoute('[...all]')).toBe(true)
-  expect(isDynamicRoute('[id]')).toBe(true)
+  expect(isDynamicRoute('$')).toBe(true)
+  expect(isDynamicRoute('$id')).toBe(true)
 })
 
 it('parameterizeDynamicRoute', () => {
   expect(parameterizeDynamicRoute('topic')).toBe('topic')
-  expect(parameterizeDynamicRoute('[id]')).toBe(':id')
+  expect(parameterizeDynamicRoute('$id')).toBe(':id')
 })
 
 it('normalizeFilenameToRoute', () => {
   expect(normalizeFilenameToRoute('_layout')).toBe('_layout')
   expect(normalizeFilenameToRoute('topic')).toBe('topic')
   expect(normalizeFilenameToRoute('index')).toBe('index')
-  expect(normalizeFilenameToRoute('[id]')).toBe(':id')
+  expect(normalizeFilenameToRoute('$id')).toBe(':id')
 })

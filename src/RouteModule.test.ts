@@ -22,7 +22,7 @@ it('should convert RouteNode to RouteObject', () => {
 it('should convert directory RouteNode to RouteObject', () => {
   const routeNode = new RouteNode('example/src/pages/posts')
   routeNode.children = [
-    new RouteNode('example/src/pages/posts/[slug].tsx'),
+    new RouteNode('example/src/pages/posts/$slug.tsx'),
     new RouteNode('example/src/pages/posts/index.tsx'),
   ]
 
@@ -36,7 +36,7 @@ it('should convert directory RouteNode to RouteObject', () => {
 })
 
 it('should convert dynamic paths to route parameters', () => {
-  const routeNode = new RouteNode('example/src/pages/posts/[slug].tsx')
+  const routeNode = new RouteNode('example/src/pages/posts/$slug.tsx')
   const route = routeModuleGenerator.buildRouteObject(routeNode)
 
   expect(route.path).toEqual(':slug')

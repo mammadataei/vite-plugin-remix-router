@@ -27,8 +27,8 @@ RouteNode {
       "children": [
         RouteNode {
           "children": [],
-          "name": "[slug]",
-          "path": "example/src/pages/posts/[slug].tsx",
+          "name": "$slug",
+          "path": "example/src/pages/posts/$slug.tsx",
         },
         RouteNode {
           "children": [],
@@ -46,26 +46,26 @@ RouteNode {
             RouteNode {
               "children": [],
               "name": "_layout",
-              "path": "example/src/pages/users/[user]/_layout.tsx",
+              "path": "example/src/pages/users/$user/_layout.tsx",
             },
             RouteNode {
               "children": [],
               "name": "index",
-              "path": "example/src/pages/users/[user]/index.tsx",
+              "path": "example/src/pages/users/$user/index.tsx",
             },
             RouteNode {
               "children": [],
               "name": "profile",
-              "path": "example/src/pages/users/[user]/profile.tsx",
+              "path": "example/src/pages/users/$user/profile.tsx",
             },
             RouteNode {
               "children": [],
               "name": "settings",
-              "path": "example/src/pages/users/[user]/settings.tsx",
+              "path": "example/src/pages/users/$user/settings.tsx",
             },
           ],
-          "name": "[user]",
-          "path": "example/src/pages/users/[user]",
+          "name": "$user",
+          "path": "example/src/pages/users/$user",
         },
         RouteNode {
           "children": [],

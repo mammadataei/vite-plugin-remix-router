@@ -9,11 +9,11 @@ export function isCatchAllRoute(s: string) {
 }
 
 export function isDynamicRoute(s: string) {
-  return /^\[(.+)]$/.test(s)
+  return s.startsWith('$')
 }
 
 export function parameterizeDynamicRoute(s: string) {
-  return s.replace(/^\[(.+)]$/, (_, p) => `:${p}`)
+  return s.replace(/^\$(.+)$/, (_, p) => `:${p}`)
 }
 
 export function normalizeFilenameToRoute(filename: string) {
