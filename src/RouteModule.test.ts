@@ -46,8 +46,8 @@ it('should convert dynamic paths to route parameters', () => {
   )
 })
 
-it('should convert [...all] routes to `no-match` route', () => {
-  const routeNode = new RouteNode('example/src/pages/[...all].tsx')
+it('should convert $ routes to splat route', () => {
+  const routeNode = new RouteNode('example/src/pages/$.tsx')
   const route = routeModuleGenerator.buildRouteObject(routeNode)
 
   expect(route).toEqual({

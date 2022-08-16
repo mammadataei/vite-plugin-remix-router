@@ -19,14 +19,7 @@ it('should generate children nodes of the root', () => {
   expect(root.children).toHaveLength(6)
 
   const children = root.children.map((child) => child.name)
-  expect(children).toEqual([
-    '[...all]',
-    '_layout',
-    'about',
-    'index',
-    'posts',
-    'users',
-  ])
+  expect(children).toEqual(['$', '_layout', 'about', 'index', 'posts', 'users'])
 })
 
 it('should recursively generate children nodes for each directory', () => {

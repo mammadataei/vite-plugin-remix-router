@@ -9,7 +9,7 @@ export const routes = [{
   \\"children\\": [
     {
       \\"path\\": \\"*\\",
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/[...all].tsx\\")))
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/$.tsx\\")))
     },
     {
       \\"path\\": \\"about\\",
@@ -69,7 +69,7 @@ exports[`should match routes snapshot 1`] = `
 {
   "children": [
     {
-      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/[...all].tsx\\")))::",
+      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/$.tsx\\")))::",
       "path": "*",
     },
     {

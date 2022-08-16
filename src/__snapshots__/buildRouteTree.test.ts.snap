@@ -5,8 +5,8 @@ RouteNode {
   "children": [
     RouteNode {
       "children": [],
-      "name": "[...all]",
-      "path": "example/src/pages/[...all].tsx",
+      "name": "$",
+      "path": "example/src/pages/$.tsx",
     },
     RouteNode {
       "children": [],

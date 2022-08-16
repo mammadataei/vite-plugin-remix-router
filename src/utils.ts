@@ -5,7 +5,7 @@ export function isDirectory(filePath: string) {
 }
 
 export function isCatchAllRoute(s: string) {
-  return /^\[\.{3}/.test(s)
+  return s === '$'
 }
 
 export function isDynamicRoute(s: string) {

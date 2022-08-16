@@ -8,9 +8,8 @@ import {
 it('isCatchAllRoute', () => {
   expect(isCatchAllRoute('')).toBe(false)
   expect(isCatchAllRoute('all')).toBe(false)
-  expect(isCatchAllRoute('[.all]')).toBe(false)
-  expect(isCatchAllRoute('[..all]')).toBe(false)
-  expect(isCatchAllRoute('[...all]')).toBe(true)
+  expect(isCatchAllRoute('$all')).toBe(false)
+  expect(isCatchAllRoute('$')).toBe(true)
 })
 
 it('isDynamicRoute', () => {
