@@ -10,11 +10,6 @@ RouteNode {
     },
     RouteNode {
       "children": [],
-      "name": "_layout",
-      "path": "example/src/pages/_layout.tsx",
-    },
-    RouteNode {
-      "children": [],
       "name": "about",
       "path": "example/src/pages/about.tsx",
     },
@@ -66,11 +61,6 @@ RouteNode {
           ],
           "name": "$user",
           "path": "example/src/pages/users/$user",
-        },
-        RouteNode {
-          "children": [],
-          "name": "_layout",
-          "path": "example/src/pages/users/_layout.tsx",
         },
         RouteNode {
           "children": [],

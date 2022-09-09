@@ -16,10 +16,10 @@ it('should scan the pages directory and generate the routeTree', () => {
 })
 
 it('should generate children nodes of the root', () => {
-  expect(root.children).toHaveLength(6)
+  expect(root.children).toHaveLength(5)
 
   const children = root.children.map((child) => child.name)
-  expect(children).toEqual(['$', '_layout', 'about', 'index', 'posts', 'users'])
+  expect(children).toEqual(['$', 'about', 'index', 'posts', 'users'])
 })
 
 it('should recursively generate children nodes for each directory', () => {
@@ -35,10 +35,10 @@ it('should recursively generate children nodes for each directory', () => {
   expect(postsChildren).toEqual(['$slug', 'index'])
 
   expect(users.name).toEqual('users')
-  expect(users.children).toHaveLength(3)
+  expect(users.children).toHaveLength(2)
 
   const usersChildren = users.children.map((child) => child.name)
-  expect(usersChildren).toEqual(['$user', '_layout', 'index'])
+  expect(usersChildren).toEqual(['$user', 'index'])
 })
 
 it('should exclude files which are not in the extensions list', () => {

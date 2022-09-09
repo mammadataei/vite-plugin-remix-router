@@ -4,7 +4,6 @@ exports[`should match route modules snapshot 1`] = `
 "import React from 'react';
 
 export const routes = [{
-  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/_layout.tsx\\"))),
   \\"path\\": \\"/\\",
   \\"children\\": [
     {
@@ -33,7 +32,6 @@ export const routes = [{
       ]
     },
     {
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/_layout.tsx\\"))),
       \\"path\\": \\"users\\",
       \\"children\\": [
         {
@@ -118,11 +116,9 @@ exports[`should match routes snapshot 1`] = `
           "index": true,
         },
       ],
-      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/_layout.tsx\\")))::",
       "path": "users",
     },
   ],
-  "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/_layout.tsx\\")))::",
   "path": "/",
 }
 `;
