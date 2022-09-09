@@ -28,7 +28,9 @@ export function Sidebar() {
   return (
     <nav className="flex justify-center text-gray-500 py-4 border-b border-gray-200">
       {links.map(({ to, label }) => (
-        <Link to={to}>{label}</Link>
+        <Link key={to} to={to}>
+          {label}
+        </Link>
       ))}
     </nav>
   )
