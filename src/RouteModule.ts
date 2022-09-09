@@ -1,26 +1,20 @@
 import path from 'path'
-import { ResolvedOptions } from './types'
 import { RouteObject } from 'react-router-dom'
 import type { RouteNode } from './buildRouteTree'
 import { isDirectory, normalizeFilenameToRoute } from './utils'
+import { getOptions } from './options'
 
 function createRouteElement(filePath: string) {
   return `::React.createElement(React.lazy(() => import("/${filePath}")))::`
 }
 
 export class RouteModule {
-  private options: ResolvedOptions
-
   private routes: RouteObject | undefined
 
   private imports: Array<string> = []
 
-  constructor(options: ResolvedOptions) {
-    this.options = options
-  }
-
   private absolutePath(filePath: string) {
-    return path.join(this.options.root, filePath)
+    return path.join(getOptions().root, filePath)
   }
 
   buildRouteObject(rootNode: RouteNode) {

@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { ResolvedOptions } from './types'
+import { getOptions } from './options'
 import { isDirectory } from './utils'
 
 export class RouteNode {
@@ -16,7 +16,7 @@ export class RouteNode {
   }
 }
 
-export function buildRouteTree(options: ResolvedOptions): RouteNode {
+export function buildRouteTree(): RouteNode {
   function createNode(filePath: string) {
     const node = new RouteNode(filePath)
 
@@ -32,7 +32,7 @@ export function buildRouteTree(options: ResolvedOptions): RouteNode {
   }
 
   function absolutePath(filePath: string) {
-    return path.join(options.root, filePath)
+    return path.join(getOptions().root, filePath)
   }
 
   function resolveChildren(directoryPath: string) {
@@ -46,11 +46,11 @@ export function buildRouteTree(options: ResolvedOptions): RouteNode {
       }
 
       const extension = path.extname(childPath)
-      return options.extensions.includes(extension.substring(1))
+      return getOptions().extensions.includes(extension.substring(1))
     })
   }
 
-  const root = createNode(options.pageDir)
+  const root = createNode(getOptions().pageDir)
   root.name = '/'
 
   return root

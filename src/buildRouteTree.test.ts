@@ -1,13 +1,14 @@
 import { buildRouteTree, RouteNode } from './buildRouteTree'
 import { expect } from 'vitest'
+import { setOptions } from './options'
 
-const options = {
+setOptions({
   root: process.cwd(),
   extensions: ['tsx', 'jsx'],
   pageDir: 'example/src/pages',
-}
+})
 
-const root = buildRouteTree(options)
+const root = buildRouteTree()
 
 it('should scan the pages directory and generate the routeTree', () => {
   expect(root).toBeInstanceOf(RouteNode)

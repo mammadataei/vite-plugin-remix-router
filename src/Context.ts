@@ -1,34 +1,21 @@
 import path from 'path'
-import { normalizePath, ViteDevServer } from 'vite'
-import { Options, ResolvedOptions, UserOptions } from './types'
+import { ViteDevServer } from 'vite'
 import { buildRouteTree, RouteNode } from './buildRouteTree'
 import { RouteModule } from './RouteModule'
 import { RESOLVED_VIRTUAL_MODULE_ID } from './constants'
-
-const defaultOptions: Options = {
-  pageDir: 'src/pages',
-  extensions: ['tsx', 'jsx'],
-}
+import { getOptions } from './options'
 
 export class Context {
-  private readonly options: ResolvedOptions
-
   private server: ViteDevServer | undefined
 
   private routeTree: RouteNode
 
   private routeModule: RouteModule
 
-  constructor(root: string, userOptions?: UserOptions) {
-    this.options = {
-      root: root ?? normalizePath(process.cwd()),
-      ...defaultOptions,
-      ...userOptions,
-    }
+  constructor() {
+    this.routeModule = new RouteModule()
 
-    this.routeModule = new RouteModule(this.options)
-
-    this.routeTree = buildRouteTree(this.options)
+    this.routeTree = buildRouteTree()
     this.routeModule.buildRouteObject(this.routeTree)
   }
 
@@ -38,7 +25,7 @@ export class Context {
     this.server.watcher.on('unlink', (filePath) => {
       if (!this.isTarget(filePath)) return
 
-      this.routeTree = buildRouteTree(this.options)
+      this.routeTree = buildRouteTree()
       this.routeModule.buildRouteObject(this.routeTree)
       this.invalidateRoutesModule()
       this.reloadServer()
@@ -47,7 +34,7 @@ export class Context {
     this.server.watcher.on('add', (filePath) => {
       if (!this.isTarget(filePath)) return
 
-      this.routeTree = buildRouteTree(this.options)
+      this.routeTree = buildRouteTree()
       this.routeModule.buildRouteObject(this.routeTree)
       this.invalidateRoutesModule()
       this.reloadServer()
@@ -68,8 +55,8 @@ export class Context {
 
   private isTarget(filePath: string) {
     return (
-      filePath.startsWith(path.resolve(this.options.pageDir)) &&
-      this.options.extensions.some((ext) => filePath.endsWith(ext))
+      filePath.startsWith(path.resolve(getOptions().pageDir)) &&
+      getOptions().extensions.some((ext) => filePath.endsWith(ext))
     )
   }
 

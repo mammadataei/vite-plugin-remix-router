@@ -1,13 +1,14 @@
 import { RouteModule } from './RouteModule'
 import { buildRouteTree, RouteNode } from './buildRouteTree'
+import { setOptions } from './options'
 
-const options = {
+setOptions({
   root: process.cwd(),
   extensions: ['tsx', 'jsx'],
   pageDir: 'example/src/pages',
-}
+})
 
-const routeModuleGenerator = new RouteModule(options)
+const routeModuleGenerator = new RouteModule()
 
 it('should convert RouteNode to RouteObject', () => {
   const routeNode = new RouteNode('example/src/pages/about.tsx')
@@ -84,13 +85,13 @@ it('should user `_layout` as element for directories', () => {
 })
 
 it('should match routes snapshot', () => {
-  const routeTree = buildRouteTree(options)
+  const routeTree = buildRouteTree()
   const routes = routeModuleGenerator.buildRouteObject(routeTree)
   expect(routes).toMatchSnapshot()
 })
 
 it('should match route modules snapshot', () => {
-  const routeTree = buildRouteTree(options)
+  const routeTree = buildRouteTree()
   routeModuleGenerator.buildRouteObject(routeTree)
   const routesModule = routeModuleGenerator.generate()
   expect(routesModule).toMatchSnapshot()

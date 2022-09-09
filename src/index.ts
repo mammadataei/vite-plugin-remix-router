@@ -2,6 +2,7 @@ import { Plugin } from 'vite'
 import { Context } from './Context'
 import { UserOptions } from './types'
 import { RESOLVED_VIRTUAL_MODULE_ID, VIRTUAL_MODULE_ID } from './constants'
+import { resolveOptions, setOptions } from './options'
 
 export default function Plugin(userOptions?: UserOptions): Plugin {
   let context: Context
@@ -11,7 +12,8 @@ export default function Plugin(userOptions?: UserOptions): Plugin {
     enforce: 'pre',
 
     configResolved({ root }) {
-      context = new Context(root, userOptions)
+      setOptions(resolveOptions(root, userOptions))
+      context = new Context()
     },
 
     configureServer(server) {
