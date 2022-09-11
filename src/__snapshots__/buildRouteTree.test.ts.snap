@@ -31,6 +31,8 @@ RouteNode {
           "path": "example/src/pages/posts/index.tsx",
         },
       ],
+      "isDirectory": true,
+      "layoutPath": undefined,
       "name": "posts",
       "path": "example/src/pages/posts",
     },
@@ -38,11 +40,6 @@ RouteNode {
       "children": [
         RouteNode {
           "children": [
-            RouteNode {
-              "children": [],
-              "name": "_layout",
-              "path": "example/src/pages/users/$user/_layout.tsx",
-            },
             RouteNode {
               "children": [],
               "name": "index",
@@ -59,6 +56,8 @@ RouteNode {
               "path": "example/src/pages/users/$user/settings.tsx",
             },
           ],
+          "isDirectory": true,
+          "layoutPath": "example/src/pages/users/$user.tsx",
           "name": "$user",
           "path": "example/src/pages/users/$user",
         },
@@ -68,10 +67,14 @@ RouteNode {
           "path": "example/src/pages/users/index.tsx",
         },
       ],
+      "isDirectory": true,
+      "layoutPath": undefined,
       "name": "users",
       "path": "example/src/pages/users",
     },
   ],
+  "isDirectory": true,
+  "layoutPath": undefined,
   "name": "/",
   "path": "example/src/pages",
 }
