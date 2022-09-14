@@ -22,6 +22,8 @@ const links = [
   { to: '/users', label: 'Users' },
   { to: '/about', label: 'About' },
   { to: '/not-found', label: '404' },
+  { to: '/login', label: 'Login' },
+  { to: '/register', label: 'Register' },
 ]
 
 export function Sidebar() {

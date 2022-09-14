@@ -11,52 +11,69 @@ export const routes = [{
       \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/$.tsx\\")))
     },
     {
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth.tsx\\"))),
+      \\"children\\": [
+        {
+          \\"path\\": \\"login\\",
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth/login.tsx\\")))
+        },
+        {
+          \\"path\\": \\"register\\",
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth/register.tsx\\")))
+        }
+      ]
+    },
+    {
+      \\"children\\": [
+        {
+          \\"path\\": \\"posts\\",
+          \\"children\\": [
+            {
+              \\"path\\": \\":slug\\",
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/posts/$slug.tsx\\")))
+            },
+            {
+              \\"index\\": true,
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/posts/index.tsx\\")))
+            }
+          ]
+        },
+        {
+          \\"path\\": \\"users\\",
+          \\"children\\": [
+            {
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user.tsx\\"))),
+              \\"path\\": \\":user\\",
+              \\"children\\": [
+                {
+                  \\"index\\": true,
+                  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user/index.tsx\\")))
+                },
+                {
+                  \\"path\\": \\"profile\\",
+                  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user/profile.tsx\\")))
+                },
+                {
+                  \\"path\\": \\"settings\\",
+                  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user/settings.tsx\\")))
+                }
+              ]
+            },
+            {
+              \\"index\\": true,
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/index.tsx\\")))
+            }
+          ]
+        }
+      ]
+    },
+    {
       \\"path\\": \\"about\\",
       \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\")))
     },
     {
       \\"index\\": true,
       \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/index.tsx\\")))
-    },
-    {
-      \\"path\\": \\"posts\\",
-      \\"children\\": [
-        {
-          \\"path\\": \\":slug\\",
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/$slug.tsx\\")))
-        },
-        {
-          \\"index\\": true,
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/index.tsx\\")))
-        }
-      ]
-    },
-    {
-      \\"path\\": \\"users\\",
-      \\"children\\": [
-        {
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user.tsx\\"))),
-          \\"path\\": \\":user\\",
-          \\"children\\": [
-            {
-              \\"index\\": true,
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/index.tsx\\")))
-            },
-            {
-              \\"path\\": \\"profile\\",
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/profile.tsx\\")))
-            },
-            {
-              \\"path\\": \\"settings\\",
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/settings.tsx\\")))
-            }
-          ]
-        },
-        {
-          \\"index\\": true,
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/index.tsx\\")))
-        }
-      ]
     }
   ]
 }]
@@ -71,52 +88,71 @@ exports[`should match routes snapshot 1`] = `
       "path": "*",
     },
     {
-      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\")))::",
-      "path": "about",
-    },
-    {
-      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/index.tsx\\")))::",
-      "index": true,
-    },
-    {
       "children": [
         {
-          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/$slug.tsx\\")))::",
-          "path": ":slug",
+          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth/login.tsx\\")))::",
+          "path": "login",
         },
         {
-          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/posts/index.tsx\\")))::",
-          "index": true,
+          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth/register.tsx\\")))::",
+          "path": "register",
         },
       ],
-      "path": "posts",
+      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth.tsx\\")))::",
+      "path": undefined,
     },
     {
       "children": [
         {
           "children": [
             {
-              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/index.tsx\\")))::",
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/posts/$slug.tsx\\")))::",
+              "path": ":slug",
+            },
+            {
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/posts/index.tsx\\")))::",
               "index": true,
             },
-            {
-              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/profile.tsx\\")))::",
-              "path": "profile",
-            },
-            {
-              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user/settings.tsx\\")))::",
-              "path": "settings",
-            },
           ],
-          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user.tsx\\")))::",
-          "path": ":user",
+          "path": "posts",
         },
         {
-          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/index.tsx\\")))::",
-          "index": true,
+          "children": [
+            {
+              "children": [
+                {
+                  "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user/index.tsx\\")))::",
+                  "index": true,
+                },
+                {
+                  "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user/profile.tsx\\")))::",
+                  "path": "profile",
+                },
+                {
+                  "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user/settings.tsx\\")))::",
+                  "path": "settings",
+                },
+              ],
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user.tsx\\")))::",
+              "path": ":user",
+            },
+            {
+              "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/index.tsx\\")))::",
+              "index": true,
+            },
+          ],
+          "path": "users",
         },
       ],
-      "path": "users",
+      "path": undefined,
+    },
+    {
+      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\")))::",
+      "path": "about",
+    },
+    {
+      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/index.tsx\\")))::",
+      "index": true,
     },
   ],
   "path": "/",

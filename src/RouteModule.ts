@@ -1,8 +1,6 @@
-import path from 'path'
 import { RouteObject } from 'react-router-dom'
 import type { RouteNode } from './buildRouteTree'
-import { isDirectory, normalizeFilenameToRoute } from './utils'
-import { getOptions } from './options'
+import { normalizeFilenameToRoute } from './utils'
 
 function createRouteElement(filePath: string) {
   return `::React.createElement(React.lazy(() => import("/${filePath}")))::`
@@ -12,10 +10,6 @@ export class RouteModule {
   private routes: RouteObject | undefined
 
   private imports: Array<string> = []
-
-  private absolutePath(filePath: string) {
-    return path.join(getOptions().root, filePath)
-  }
 
   buildRouteObject(rootNode: RouteNode) {
     this.imports = []
@@ -39,7 +33,9 @@ export class RouteModule {
   private createLayoutRoute(node: RouteNode): RouteObject {
     return {
       element: node.layoutPath && createRouteElement(node.layoutPath),
-      path: normalizeFilenameToRoute(node.name),
+      path: node.name.startsWith('__')
+        ? undefined
+        : normalizeFilenameToRoute(node.name),
       children: node.children
         .filter((child) => child.name !== '_layout')
         .map((child) => this.createRouteObject(child)),
@@ -48,7 +44,9 @@ export class RouteModule {
 
   private createDirectoryRoute(node: RouteNode): RouteObject {
     return {
-      path: normalizeFilenameToRoute(node.name),
+      path: node.name.startsWith('__')
+        ? undefined
+        : normalizeFilenameToRoute(node.name),
       children: node.children
         .filter((child) => child.name !== '_layout')
         .map((child) => this.createRouteObject(child)),

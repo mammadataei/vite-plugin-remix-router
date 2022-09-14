@@ -20,26 +20,25 @@ it('should generate children nodes of the root', () => {
   expect(root.children).toHaveLength(5)
 
   const children = root.children.map((child) => child.name)
-  expect(children).toEqual(['$', 'about', 'index', 'posts', 'users'])
+  expect(children).toEqual(['$', '__auth', '__panel', 'about', 'index'])
 })
 
 it('should recursively generate children nodes for each directory', () => {
   const directories = root.children.filter((child) => child.children.length > 0)
 
   expect(directories).toHaveLength(2)
-  const [posts, users] = directories
+  const [auth, panel] = directories
 
-  expect(posts.name).toEqual('posts')
-  expect(posts.children).toHaveLength(2)
+  expect(auth.name).toEqual('__auth')
+  expect(auth.children).toHaveLength(2)
+  expect(auth.children.map((child) => child.name)).toEqual([
+    'login',
+    'register',
+  ])
 
-  const postsChildren = posts.children.map((child) => child.name)
-  expect(postsChildren).toEqual(['$slug', 'index'])
-
-  expect(users.name).toEqual('users')
-  expect(users.children).toHaveLength(2)
-
-  const usersChildren = users.children.map((child) => child.name)
-  expect(usersChildren).toEqual(['$user', 'index'])
+  expect(panel.name).toEqual('__panel')
+  expect(panel.children).toHaveLength(2)
+  expect(panel.children.map((child) => child.name)).toEqual(['posts', 'users'])
 })
 
 it('should exclude files which are not in the extensions list', () => {

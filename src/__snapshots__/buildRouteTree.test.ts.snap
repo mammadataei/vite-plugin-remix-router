@@ -9,6 +9,86 @@ RouteNode {
       "path": "example/src/pages/$.tsx",
     },
     RouteNode {
+      "children": [
+        RouteNode {
+          "children": [],
+          "name": "login",
+          "path": "example/src/pages/__auth/login.tsx",
+        },
+        RouteNode {
+          "children": [],
+          "name": "register",
+          "path": "example/src/pages/__auth/register.tsx",
+        },
+      ],
+      "isDirectory": true,
+      "layoutPath": "example/src/pages/__auth.tsx",
+      "name": "__auth",
+      "path": "example/src/pages/__auth",
+    },
+    RouteNode {
+      "children": [
+        RouteNode {
+          "children": [
+            RouteNode {
+              "children": [],
+              "name": "$slug",
+              "path": "example/src/pages/__panel/posts/$slug.tsx",
+            },
+            RouteNode {
+              "children": [],
+              "name": "index",
+              "path": "example/src/pages/__panel/posts/index.tsx",
+            },
+          ],
+          "isDirectory": true,
+          "layoutPath": undefined,
+          "name": "posts",
+          "path": "example/src/pages/__panel/posts",
+        },
+        RouteNode {
+          "children": [
+            RouteNode {
+              "children": [
+                RouteNode {
+                  "children": [],
+                  "name": "index",
+                  "path": "example/src/pages/__panel/users/$user/index.tsx",
+                },
+                RouteNode {
+                  "children": [],
+                  "name": "profile",
+                  "path": "example/src/pages/__panel/users/$user/profile.tsx",
+                },
+                RouteNode {
+                  "children": [],
+                  "name": "settings",
+                  "path": "example/src/pages/__panel/users/$user/settings.tsx",
+                },
+              ],
+              "isDirectory": true,
+              "layoutPath": "example/src/pages/__panel/users/$user.tsx",
+              "name": "$user",
+              "path": "example/src/pages/__panel/users/$user",
+            },
+            RouteNode {
+              "children": [],
+              "name": "index",
+              "path": "example/src/pages/__panel/users/index.tsx",
+            },
+          ],
+          "isDirectory": true,
+          "layoutPath": undefined,
+          "name": "users",
+          "path": "example/src/pages/__panel/users",
+        },
+      ],
+      "isDirectory": true,
+      "layoutPath": undefined,
+      "name": "__panel",
+      "path": "example/src/pages/__panel",
+    },
+    RouteNode {
       "children": [],
       "name": "about",
       "path": "example/src/pages/about.tsx",
@@ -17,60 +97,6 @@ RouteNode {
       "children": [],
       "name": "index",
       "path": "example/src/pages/index.tsx",
-    },
-    RouteNode {
-      "children": [
-        RouteNode {
-          "children": [],
-          "name": "$slug",
-          "path": "example/src/pages/posts/$slug.tsx",
-        },
-        RouteNode {
-          "children": [],
-          "name": "index",
-          "path": "example/src/pages/posts/index.tsx",
-        },
-      ],
-      "isDirectory": true,
-      "layoutPath": undefined,
-      "name": "posts",
-      "path": "example/src/pages/posts",
-    },
-    RouteNode {
-      "children": [
-        RouteNode {
-          "children": [
-            RouteNode {
-              "children": [],
-              "name": "index",
-              "path": "example/src/pages/users/$user/index.tsx",
-            },
-            RouteNode {
-              "children": [],
-              "name": "profile",
-              "path": "example/src/pages/users/$user/profile.tsx",
-            },
-            RouteNode {
-              "children": [],
-              "name": "settings",
-              "path": "example/src/pages/users/$user/settings.tsx",
-            },
-          ],
-          "isDirectory": true,
-          "layoutPath": "example/src/pages/users/$user.tsx",
-          "name": "$user",
-          "path": "example/src/pages/users/$user",
-        },
-        RouteNode {
-          "children": [],
-          "name": "index",
-          "path": "example/src/pages/users/index.tsx",
-        },
-      ],
-      "isDirectory": true,
-      "layoutPath": undefined,
-      "name": "users",
-      "path": "example/src/pages/users",
     },
   ],
   "isDirectory": true,
