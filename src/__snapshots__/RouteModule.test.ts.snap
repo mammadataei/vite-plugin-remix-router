@@ -35,6 +35,7 @@ export const routes = [{
       \\"path\\": \\"users\\",
       \\"children\\": [
         {
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user.tsx\\"))),
           \\"path\\": \\":user\\",
           \\"children\\": [
             {
@@ -107,6 +108,7 @@ exports[`should match routes snapshot 1`] = `
               "path": "settings",
             },
           ],
+          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/users/$user.tsx\\")))::",
           "path": ":user",
         },
         {

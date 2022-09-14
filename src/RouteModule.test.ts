@@ -22,6 +22,7 @@ it('should convert RouteNode to RouteObject', () => {
 
 it('should convert directory RouteNode to RouteObject', () => {
   const routeNode = new RouteNode('example/src/pages/posts')
+  routeNode.isDirectory = true
   routeNode.children = [
     new RouteNode('example/src/pages/posts/$slug.tsx'),
     new RouteNode('example/src/pages/posts/index.tsx'),
@@ -67,20 +68,24 @@ it('should create index route for RouteNodes with name `index`', () => {
   })
 })
 
-it('should user `_layout` as element for directories', () => {
-  const routeNode = new RouteNode('example/src/pages/users')
+it('should use same name module as element for directories', () => {
+  const routeNode = new RouteNode('example/src/pages/users/$user')
+  routeNode.layoutPath = 'example/src/pages/users/$user.tsx'
+  routeNode.isDirectory = true
   routeNode.children = [
-    new RouteNode('example/src/pages/users/_layout.tsx'),
-    new RouteNode('example/src/pages/users/index.tsx'),
+    new RouteNode('example/src/pages/users/$user/index.tsx'),
+    new RouteNode('example/src/pages/users/$user/profile.tsx'),
+    new RouteNode('example/src/pages/users/$user/settings.tsx'),
   ]
 
   const { children, ...route } =
     routeModuleGenerator.buildRouteObject(routeNode)
 
-  expect(children).toHaveLength(1)
+  expect(children).toHaveLength(3)
   expect(route).toEqual({
-    path: 'users',
-    element: `::React.createElement(React.lazy(() => import("/${routeNode.path}/_layout.tsx")))::`,
+    path: ':user',
+    element:
+      '::React.createElement(React.lazy(() => import("/example/src/pages/users/$user.tsx")))::',
   })
 })
 

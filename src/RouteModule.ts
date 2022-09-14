@@ -25,20 +25,29 @@ export class RouteModule {
   }
 
   private createRouteObject(node: RouteNode) {
-    if (isDirectory(this.absolutePath(node.path))) {
-      return this.createLayoutRoute(node)
+    if (node.isDirectory) {
+      if (node.layoutPath) {
+        return this.createLayoutRoute(node)
+      }
+
+      return this.createDirectoryRoute(node)
     }
 
     return this.createPageRoute(node)
   }
 
   private createLayoutRoute(node: RouteNode): RouteObject {
-    const layout = node.children.find((child) => child.name === '_layout')
-
-    const element = layout ? { element: createRouteElement(layout.path) } : {}
-
     return {
-      ...element,
+      element: node.layoutPath && createRouteElement(node.layoutPath),
+      path: normalizeFilenameToRoute(node.name),
+      children: node.children
+        .filter((child) => child.name !== '_layout')
+        .map((child) => this.createRouteObject(child)),
+    }
+  }
+
+  private createDirectoryRoute(node: RouteNode): RouteObject {
+    return {
       path: normalizeFilenameToRoute(node.name),
       children: node.children
         .filter((child) => child.name !== '_layout')
