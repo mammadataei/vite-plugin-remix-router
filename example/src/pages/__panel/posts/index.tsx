@@ -17,12 +17,16 @@ function slugify(str: string) {
 
 export default function () {
   return (
-    <div>
+    <div className="w-full h-full">
       <h1 className="text-2xl">Posts</h1>
 
       <div className="flex flex-col gap-y-2 pt-8">
         {posts.map(({ id, title }) => (
-          <NavLink key={id} to={slugify(title)}>
+          <NavLink
+            key={id}
+            to={slugify(title)}
+            className="py-3 px-4 border rounded-sm hover:bg-gray-50"
+          >
             {title}
           </NavLink>
         ))}

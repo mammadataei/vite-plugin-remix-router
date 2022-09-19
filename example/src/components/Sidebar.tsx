@@ -6,8 +6,8 @@ function Link(props: PropsWithChildren<{ to: string }>) {
     <NavLink
       to={props.to}
       className={({ isActive }) =>
-        `py-3 px-4 rounded hover:bg-gray-50 hover:text-gray-700 border-gray-300 focus:border-1 ${
-          isActive ? 'text-blue-500' : ''
+        `py-3 px-8 rounded hover:bg-indigo-50 hover:text-gray-700 border-gray-300 focus:border-1 ${
+          isActive ? 'text-indigo-500' : ''
         }`
       }
     >
@@ -17,18 +17,13 @@ function Link(props: PropsWithChildren<{ to: string }>) {
 }
 
 const links = [
-  { to: '/', label: 'Home' },
   { to: '/posts', label: 'Posts' },
   { to: '/users', label: 'Users' },
-  { to: '/about', label: 'About' },
-  { to: '/not-found', label: '404' },
-  { to: '/login', label: 'Login' },
-  { to: '/register', label: 'Register' },
 ]
 
 export function Sidebar() {
   return (
-    <nav className="flex justify-center text-gray-500 py-4 border-b border-gray-200">
+    <nav className="relative w-full h-full flex flex-col text-gray-500 px-4 py-8 border-r">
       {links.map(({ to, label }) => (
         <Link key={to} to={to}>
           {label}

@@ -11,19 +11,15 @@ export const routes = [{
       \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/$.tsx\\")))
     },
     {
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth.tsx\\"))),
       \\"children\\": [
         {
           \\"path\\": \\"login\\",
           \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth/login.tsx\\")))
-        },
-        {
-          \\"path\\": \\"register\\",
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth/register.tsx\\")))
         }
       ]
     },
     {
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel.tsx\\"))),
       \\"children\\": [
         {
           \\"path\\": \\"posts\\",
@@ -93,12 +89,7 @@ exports[`should match routes snapshot 1`] = `
           "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth/login.tsx\\")))::",
           "path": "login",
         },
-        {
-          "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth/register.tsx\\")))::",
-          "path": "register",
-        },
       ],
-      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth.tsx\\")))::",
       "path": undefined,
     },
     {
@@ -144,6 +135,7 @@ exports[`should match routes snapshot 1`] = `
           "path": "users",
         },
       ],
+      "element": "::React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel.tsx\\")))::",
       "path": undefined,
     },
     {

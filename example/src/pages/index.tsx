@@ -1,3 +1,5 @@
+import { Navigate } from 'react-router-dom'
+
 export default function () {
-  return <h1 className="text-2xl">Home</h1>
+  return <Navigate to="/login" />
 }

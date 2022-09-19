@@ -30,11 +30,8 @@ it('should recursively generate children nodes for each directory', () => {
   const [auth, panel] = directories
 
   expect(auth.name).toEqual('__auth')
-  expect(auth.children).toHaveLength(2)
-  expect(auth.children.map((child) => child.name)).toEqual([
-    'login',
-    'register',
-  ])
+  expect(auth.children).toHaveLength(1)
+  expect(auth.children.map((child) => child.name)).toEqual(['login'])
 
   expect(panel.name).toEqual('__panel')
   expect(panel.children).toHaveLength(2)
