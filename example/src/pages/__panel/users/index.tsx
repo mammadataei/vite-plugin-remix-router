@@ -20,7 +20,7 @@ export default function () {
         {users.map(({ id, name }) => (
           <NavLink
             key={id}
-            to={name}
+            to={name.toLowerCase()}
             className="py-3 px-4 border rounded-sm hover:bg-gray-50"
           >
             {name}

@@ -15,7 +15,7 @@ export default function () {
               `py-2 px-3 ${isActive ? 'text-blue-500' : ''}`
             }
           >
-            overview
+            Overview
           </NavLink>
           <NavLink
             to="profile"
@@ -31,7 +31,7 @@ export default function () {
               `py-2 px-3 ${isActive ? 'text-blue-500' : ''}`
             }
           >
-            settings
+            Settings
           </NavLink>
         </div>
         <div className="p-4">

@@ -12,7 +12,7 @@ const posts = [
 ]
 
 function slugify(str: string) {
-  return str.replace(/\s/, '_').toLowerCase()
+  return str.replace(/\s/, '-').toLowerCase()
 }
 
 export default function () {
