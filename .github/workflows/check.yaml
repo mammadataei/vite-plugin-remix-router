@@ -82,10 +82,13 @@ jobs:
       - name: Run Tests
         run: pnpm test
 
+      - name: Build Plugin
+        run: pnpm build
+
       - name: Run E2E Tests
         uses: cypress-io/github-action@v4
         with:
           install: false
-          build: pnpm build
-          start: pnpm example dev
-          command: pnpm example test
+          working-directory: example
+          start: pnpm dev
+          command: pnpm test
