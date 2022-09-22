@@ -13,6 +13,7 @@
     "noImplicitReturns": true,
     "downlevelIteration": true,
     "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
     "noEmit": true
   },
   "include": ["src", "client.d.ts"],
