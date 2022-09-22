@@ -21,7 +21,7 @@ export class RouteNode {
 }
 
 export function buildRouteTree(): RouteNode {
-  const root = createNode(getOptions().pageDir)
+  const root = createNode(getOptions().routesDirectory)
   root.isDirectory = true
   root.name = '/'
 

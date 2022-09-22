@@ -66,7 +66,7 @@ export default function Plugin(userOptions?: UserOptions): Plugin {
 
 function isRouteFile(filePath: string) {
   return (
-    filePath.startsWith(path.resolve(getOptions().pageDir)) &&
+    filePath.startsWith(path.resolve(getOptions().routesDirectory)) &&
     getOptions().extensions.some((ext) => filePath.endsWith(ext))
   )
 }

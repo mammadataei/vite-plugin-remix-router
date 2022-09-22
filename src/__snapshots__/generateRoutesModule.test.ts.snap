@@ -8,29 +8,29 @@ export const routes = [{
   \\"children\\": [
     {
       \\"path\\": \\"*\\",
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/$.tsx\\")))
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/$.tsx\\")))
     },
     {
       \\"children\\": [
         {
           \\"path\\": \\"login\\",
-          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__auth/login.tsx\\")))
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__auth/login.tsx\\")))
         }
       ]
     },
     {
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel.tsx\\"))),
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel.tsx\\"))),
       \\"children\\": [
         {
           \\"path\\": \\"posts\\",
           \\"children\\": [
             {
               \\"path\\": \\":slug\\",
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/posts/$slug.tsx\\")))
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/posts/$slug.tsx\\")))
             },
             {
               \\"index\\": true,
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/posts/index.tsx\\")))
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/posts/index.tsx\\")))
             }
           ]
         },
@@ -38,26 +38,26 @@ export const routes = [{
           \\"path\\": \\"users\\",
           \\"children\\": [
             {
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user.tsx\\"))),
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users/$user.tsx\\"))),
               \\"path\\": \\":user\\",
               \\"children\\": [
                 {
                   \\"index\\": true,
-                  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user/index.tsx\\")))
+                  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users/$user/index.tsx\\")))
                 },
                 {
                   \\"path\\": \\"profile\\",
-                  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user/profile.tsx\\")))
+                  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users/$user/profile.tsx\\")))
                 },
                 {
                   \\"path\\": \\"settings\\",
-                  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/$user/settings.tsx\\")))
+                  \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users/$user/settings.tsx\\")))
                 }
               ]
             },
             {
               \\"index\\": true,
-              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/__panel/users/index.tsx\\")))
+              \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users/index.tsx\\")))
             }
           ]
         }
@@ -65,11 +65,11 @@ export const routes = [{
     },
     {
       \\"path\\": \\"about\\",
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/about.tsx\\")))
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/about.tsx\\")))
     },
     {
       \\"index\\": true,
-      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/pages/index.tsx\\")))
+      \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/index.tsx\\")))
     }
   ]
 }]

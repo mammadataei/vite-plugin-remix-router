@@ -1,9 +1,9 @@
 export interface Options {
   /**
-   * Path to the directory to search for page components.
-   * @default 'src/pages'
+   * Path to the routes directory.
+   * @default 'src/routes'
    */
-  pageDir: string
+  routesDirectory: string
 
   /**
    * Valid file extensions for page components.

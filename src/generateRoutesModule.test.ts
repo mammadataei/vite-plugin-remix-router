@@ -5,7 +5,7 @@ import { setOptions } from './options'
 setOptions({
   root: process.cwd(),
   extensions: ['tsx', 'jsx'],
-  pageDir: 'example/src/pages',
+  routesDirectory: 'example/src/routes',
 })
 
 it('should generate the routes module', () => {

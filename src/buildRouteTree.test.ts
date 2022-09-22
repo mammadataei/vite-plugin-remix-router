@@ -5,7 +5,7 @@ import { setOptions } from './options'
 setOptions({
   root: process.cwd(),
   extensions: ['tsx', 'jsx'],
-  pageDir: 'example/src/pages',
+  routesDirectory: 'example/src/routes',
 })
 
 const root = buildRouteTree()
@@ -13,7 +13,7 @@ const root = buildRouteTree()
 it('should scan the pages directory and generate the routeTree', () => {
   expect(root).toBeInstanceOf(RouteNode)
   expect(root.name).toEqual('/')
-  expect(root.path).toEqual('example/src/pages')
+  expect(root.path).toEqual('example/src/routes')
 })
 
 it('should generate children nodes of the root', () => {

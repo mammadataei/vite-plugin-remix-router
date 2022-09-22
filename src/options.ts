@@ -2,7 +2,7 @@ import { normalizePath } from 'vite'
 import { Options, ResolvedOptions, UserOptions } from './types'
 
 const defaultOptions: Options = {
-  pageDir: 'src/pages',
+  routesDirectory: 'src/routes',
   extensions: ['tsx', 'jsx'],
 }
 
