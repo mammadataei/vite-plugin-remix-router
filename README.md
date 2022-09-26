@@ -67,6 +67,18 @@ For `virtual:routes` type definitions, simply add the following to your
 }
 ```
 
+Or use a triple-slash directive:
+
+```typescript
+/// <reference types="vite-plugin-remix-router/client" />
+import { useRoutes } from 'react-router-dom'
+import { routes } from 'virtual:routes'
+
+export function Routes() {
+  return useRoutes(routes)
+}
+```
+
 ## Defining Routes
 
 To define a new route, simply create a new file in the routes directory. The
