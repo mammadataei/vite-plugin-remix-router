@@ -54,6 +54,19 @@ export function Routes() {
 }
 ```
 
+### Typescript support
+
+For `virtual:routes` type definitions, simply add the following to your
+`tsconfig.json`:
+
+```json5
+{
+  compilerOptions: {
+    types: ['vite/client', 'vite-plugin-remix-router/client'],
+  },
+}
+```
+
 ## Defining Routes
 
 To define a new route, simply create a new file in the routes directory. The
