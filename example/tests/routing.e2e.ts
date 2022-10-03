@@ -1,4 +1,19 @@
-export {}
+import { randPost } from '@ngneat/falso'
+import { slugify } from '../src/utils'
+
+const posts = randPost({ length: 10 })
+
+beforeEach(() => {
+  cy.intercept('GET', '/api/posts', (request) => {
+    request.reply({ posts })
+  })
+
+  posts.forEach((post) => {
+    cy.intercept('GET', `/api/posts/${slugify(post.title)}`, (request) => {
+      request.reply({ post })
+    })
+  })
+})
 
 it('should navigate through pages', () => {
   cy.visit('/')
@@ -11,8 +26,8 @@ it('should navigate through pages', () => {
   cy.findByRole('heading', { name: 'Posts' }).should('exist')
   cy.location('pathname').should('equal', '/posts')
 
-  cy.findByText('Hello World').click()
-  cy.location('pathname').should('equal', '/posts/hello-world')
+  cy.findByText(posts[0].title).click()
+  cy.location('pathname').should('equal', `/posts/${slugify(posts[0].title)}`)
 
   cy.findByText('back').click()
   cy.location('pathname').should('equal', '/posts')
