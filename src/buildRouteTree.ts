@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import { getOptions } from './options'
-import { isDirectory } from './utils'
+import { toAbsolutePath, isDirectory } from './utils'
 
 export class RouteNode {
   name: string
@@ -31,25 +31,21 @@ export function buildRouteTree(): RouteNode {
 function createNode(filePath: string) {
   const node = new RouteNode(filePath)
 
-  if (isDirectory(absolutePath(filePath))) {
+  if (isDirectory(toAbsolutePath(filePath))) {
     node.isDirectory = true
     node.layoutPath = getLayoutPath(filePath)
 
-    const children = resolveChildren(absolutePath(filePath))
+    const children = resolveChildren(toAbsolutePath(filePath))
     node.children = children.map((child) => createNode(`${filePath}/${child}`))
   }
 
   return node
 }
 
-function absolutePath(filePath: string) {
-  return path.join(getOptions().root, filePath)
-}
-
 function getLayoutPath(directoryPath: string) {
   return getOptions()
     .extensions.map((extension) => `${directoryPath}.${extension}`)
-    .find((filePath) => fs.existsSync(absolutePath(filePath)))
+    .find((filePath) => fs.existsSync(toAbsolutePath(filePath)))
 }
 
 function resolveChildren(directoryPath: string) {

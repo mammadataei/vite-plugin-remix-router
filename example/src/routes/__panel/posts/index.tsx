@@ -1,21 +1,14 @@
-import { NavLink } from 'react-router-dom'
+import { LoaderFunction, NavLink, useLoaderData } from 'react-router-dom'
+import { Post } from '@ngneat/falso'
+import { slugify } from '../../../utils'
 
-const posts = [
-  {
-    id: 1,
-    title: 'Hello World',
-  },
-  {
-    id: 2,
-    title: 'New Post',
-  },
-]
-
-function slugify(str: string) {
-  return str.replace(/\s/, '-').toLowerCase()
+export const loader: LoaderFunction = async () => {
+  return fetch('/api/posts').then((response) => response.json())
 }
 
 export default function () {
+  const { posts } = useLoaderData() as { posts: Post[] }
+
   return (
     <div className="w-full h-full">
       <h1 className="text-2xl">Posts</h1>

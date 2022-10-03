@@ -2,6 +2,8 @@
 
 exports[`should generate the routes module 1`] = `
 "import React from 'react';
+import { loader as example_src_routes___panel_posts_$slug_LOADER } from '/example/src/routes/__panel/posts/$slug.tsx';
+import { loader as example_src_routes___panel_posts_index_LOADER } from '/example/src/routes/__panel/posts/index.tsx';
 
 export const routes = [{
   \\"path\\": \\"/\\",
@@ -26,10 +28,12 @@ export const routes = [{
           \\"children\\": [
             {
               \\"path\\": \\":slug\\",
+              \\"loader\\": example_src_routes___panel_posts_$slug_LOADER,
               \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/posts/$slug.tsx\\")))
             },
             {
               \\"index\\": true,
+              \\"loader\\": example_src_routes___panel_posts_index_LOADER,
               \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/posts/index.tsx\\")))
             }
           ]

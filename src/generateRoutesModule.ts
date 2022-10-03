@@ -1,12 +1,22 @@
-import { RouteObject } from 'react-router-dom'
+import fs from 'fs'
+import { LoaderFunction, RouteObject } from 'react-router-dom'
 import type { RouteNode } from './buildRouteTree'
-import { normalizeFilenameToRoute } from './utils'
+import {
+  createImportName,
+  hasLoader,
+  normalizeFilenameToRoute,
+  toAbsolutePath,
+} from './utils'
+
+let imports: Array<string> = []
 
 export function generateRoutesModule(rootNode: RouteNode) {
+  imports = []
   const routes = createRouteObject(rootNode)
 
   const code: Array<string> = []
   code.push("import React from 'react';")
+  code.push(...imports)
   code.push('')
 
   const routesString = JSON.stringify(routes, null, 2)
@@ -44,10 +54,25 @@ function createPageRoute(node: RouteNode): RouteObject {
 
   return {
     ...path,
+    loader: resolveLoader(node.path) as LoaderFunction | undefined,
     element: createRouteElement(node.path),
   }
 }
 
 function createRouteElement(filePath: string) {
   return `::React.createElement(React.lazy(() => import("/${filePath}")))::`
+}
+
+function resolveLoader(filePath: string) {
+  const code = fs.readFileSync(toAbsolutePath(filePath), 'utf8')
+
+  if (hasLoader(code)) {
+    const importName = createImportName(filePath, 'LOADER')
+
+    imports.push(`import { loader as ${importName} } from '/${filePath}';`)
+
+    return `::${importName}::`
+  }
+
+  return undefined
 }
