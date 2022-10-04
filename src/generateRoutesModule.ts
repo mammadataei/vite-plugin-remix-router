@@ -1,8 +1,9 @@
 import fs from 'fs'
-import { LoaderFunction, RouteObject } from 'react-router-dom'
+import { ActionFunction, LoaderFunction, RouteObject } from 'react-router-dom'
 import type { RouteNode } from './buildRouteTree'
 import {
   createImportName,
+  hasAction,
   hasLoader,
   normalizeFilenameToRoute,
   toAbsolutePath,
@@ -55,6 +56,7 @@ function createPageRoute(node: RouteNode): RouteObject {
   return {
     ...path,
     loader: resolveLoader(node.path) as LoaderFunction | undefined,
+    action: resolveAction(node.path) as ActionFunction | undefined,
     element: createRouteElement(node.path),
   }
 }
@@ -70,6 +72,20 @@ function resolveLoader(filePath: string) {
     const importName = createImportName(filePath, 'LOADER')
 
     imports.push(`import { loader as ${importName} } from '/${filePath}';`)
+
+    return `::${importName}::`
+  }
+
+  return undefined
+}
+
+function resolveAction(filePath: string) {
+  const code = fs.readFileSync(toAbsolutePath(filePath), 'utf8')
+
+  if (hasAction(code)) {
+    const importName = createImportName(filePath, 'ACTION')
+
+    imports.push(`import { action as ${importName} } from '/${filePath}';`)
 
     return `::${importName}::`
   }

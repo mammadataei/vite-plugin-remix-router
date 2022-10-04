@@ -1,12 +1,12 @@
 import {
   createImportName,
+  hasAction,
   hasLoader,
   isCatchAllRoute,
   isDynamicRoute,
   normalizeFilenameToRoute,
   parameterizeDynamicRoute,
 } from './utils'
-import { expect } from 'vitest'
 
 it('isCatchAllRoute', () => {
   expect(isCatchAllRoute('')).toBe(false)
@@ -59,4 +59,16 @@ it('hasLoader', () => {
   expect(hasLoader(`export async function loader() {}`)).toEqual(true)
   expect(hasLoader(`async function loader () {}`)).toEqual(true)
   expect(hasLoader(`async function loader () {}`)).toEqual(true)
+})
+
+it('hasAction', () => {
+  expect(hasAction(`export const action = () => {}`)).toEqual(true)
+  expect(hasAction(`export const action:ActionFunction = () => {}`)).toEqual(
+    true,
+  )
+  expect(hasAction(`const action = () => {}`)).toEqual(true)
+  expect(hasAction(`export function action () {}`)).toEqual(true)
+  expect(hasAction(`export async function action() {}`)).toEqual(true)
+  expect(hasAction(`async function action () {}`)).toEqual(true)
+  expect(hasAction(`async function action () {}`)).toEqual(true)
 })

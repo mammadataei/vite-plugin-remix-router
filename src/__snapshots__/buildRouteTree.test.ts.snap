@@ -32,6 +32,11 @@ RouteNode {
             },
             RouteNode {
               "children": [],
+              "name": "create",
+              "path": "example/src/routes/__panel/posts/create.tsx",
+            },
+            RouteNode {
+              "children": [],
               "name": "index",
               "path": "example/src/routes/__panel/posts/index.tsx",
             },
