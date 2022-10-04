@@ -3,6 +3,7 @@ import path from 'path'
 import { getOptions } from './options'
 
 const ROUTE_LOADER_REGEX = /(export\s)?(async\s)?(const|function)\sloader/
+const ROUTE_ACTION_REGEX = /(export\s)?(async\s)?(const|function)\saction/
 
 export function isDirectory(filePath: string) {
   return fs.statSync(filePath).isDirectory()
@@ -49,4 +50,8 @@ export function createImportName(filePath: string, postfix: string) {
 
 export function hasLoader(code: string) {
   return ROUTE_LOADER_REGEX.test(code)
+}
+
+export function hasAction(code: string) {
+  return ROUTE_ACTION_REGEX.test(code)
 }

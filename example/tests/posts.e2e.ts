@@ -15,7 +15,7 @@ it('should fetch and render posts', () => {
   })
 })
 
-it.only('should fetch and render posts', () => {
+it('should fetch and render posts', () => {
   const post = randPost()
 
   cy.intercept('GET', `/api/posts/${slugify(post.title)}`, (request) => {
@@ -26,4 +26,23 @@ it.only('should fetch and render posts', () => {
 
   cy.findByText(post.title).should('exist')
   cy.findByText(post.body).should('exist')
+})
+
+it('should create a new post', () => {
+  const post = {
+    title: 'Hello world',
+    body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
+  }
+  cy.intercept('POST', '/api/posts', (request) => {
+    request.reply({ message: 'Post created successfully.' })
+  }).as('createPost')
+
+  cy.visit('/posts/create')
+
+  cy.findByLabelText('Title').type(post.title)
+  cy.findByLabelText('Body').type(post.body)
+  cy.findByRole('button').click()
+
+  cy.get('@createPost').its('request.body').should('deep.equal', post)
+  cy.findByText('Post created successfully.').should('exist')
 })
