@@ -3,8 +3,9 @@
   "name": "example",
   "scripts": {
     "dev": "vite",
-    "cypress": "cypress open",
-    "test": "cypress run",
+    "cypress": "start-server-and-test dev 5173 'cypress open'",
+    "test": "start-server-and-test dev 5173 'cypress run'",
+    "test:ci": "cypress run",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -22,6 +23,7 @@
     "@vitejs/plugin-react": "^2.1.0",
     "cypress": "^10.8.0",
     "cypress-vite": "^1.1.1",
+    "start-server-and-test": "^1.14.0",
     "typescript": "^4.8.3",
     "unocss": "^0.45.18",
     "vite": "^3.1.0",

@@ -91,4 +91,4 @@ jobs:
           install: false
           working-directory: example
           start: pnpm dev
-          command: pnpm test
+          command: pnpm test:ci
