@@ -28,6 +28,23 @@ it('should fetch and render posts', () => {
   cy.findByText(post.body).should('exist')
 })
 
+it('should render `ErrorElement` when error occurs', () => {
+  cy.intercept('GET', `/api/posts/hello-world`, (request) => {
+    request.reply({
+      statusCode: 404,
+      body: {
+        error: {
+          message: 'Post Not Found.',
+        },
+      },
+    })
+  })
+
+  cy.visit(`/posts/hello-world`)
+
+  cy.findByText('Post Not Found.').should('exist')
+})
+
 it('should create a new post', () => {
   const post = {
     title: 'Hello world',
