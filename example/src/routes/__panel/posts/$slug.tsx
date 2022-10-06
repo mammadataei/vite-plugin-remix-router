@@ -1,10 +1,20 @@
-import { LoaderFunction, NavLink, useLoaderData } from 'react-router-dom'
+import {
+  json,
+  LoaderFunction,
+  NavLink,
+  useLoaderData,
+  useRouteError,
+} from 'react-router-dom'
 import { Post } from '@ngneat/falso'
 
 export const loader: LoaderFunction = async ({ params }) => {
-  return await fetch(`/api/posts/${params.slug}`).then((response) =>
-    response.json(),
-  )
+  const response = await fetch(`/api/posts/${params.slug}`)
+
+  if (response.status === 404) {
+    throw new Response('Post Not Found.', { status: 404 })
+  }
+
+  return await response.json()
 }
 
 export default function () {
@@ -19,4 +29,9 @@ export default function () {
       <p className="mt-8">{post.body}</p>
     </div>
   )
+}
+
+export function ErrorElement() {
+  const error = useRouteError() as { data: string } | undefined
+  return <div className="text-2xl text-red-600">{error?.data}</div>
 }

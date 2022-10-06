@@ -1,6 +1,7 @@
 import {
   createImportName,
   hasAction,
+  hasErrorElement,
   hasLoader,
   isCatchAllRoute,
   isDynamicRoute,
@@ -71,4 +72,10 @@ it('hasAction', () => {
   expect(hasAction(`export async function action() {}`)).toEqual(true)
   expect(hasAction(`async function action () {}`)).toEqual(true)
   expect(hasAction(`async function action () {}`)).toEqual(true)
+})
+
+it('hasErrorElement', () => {
+  expect(hasErrorElement(`export const ErrorElement = () => {}`)).toEqual(true)
+  expect(hasErrorElement(`const ErrorElement = () => {}`)).toEqual(true)
+  expect(hasErrorElement(`export function ErrorElement () {}`)).toEqual(true)
 })
