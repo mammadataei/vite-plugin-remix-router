@@ -1,6 +1,7 @@
 import {
   createImportName,
   hasAction,
+  hasErrorBoundary,
   hasErrorElement,
   hasLoader,
   isCatchAllRoute,
@@ -78,4 +79,12 @@ it('hasErrorElement', () => {
   expect(hasErrorElement(`export const ErrorElement = () => {}`)).toEqual(true)
   expect(hasErrorElement(`const ErrorElement = () => {}`)).toEqual(true)
   expect(hasErrorElement(`export function ErrorElement () {}`)).toEqual(true)
+})
+
+it('hasErrorBoundary', () => {
+  expect(hasErrorBoundary(`export const ErrorBoundary = () => {}`)).toEqual(
+    true,
+  )
+  expect(hasErrorBoundary(`const ErrorBoundary = () => {}`)).toEqual(true)
+  expect(hasErrorBoundary(`export function ErrorBoundary () {}`)).toEqual(true)
 })

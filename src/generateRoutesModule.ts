@@ -4,6 +4,7 @@ import type { RouteNode } from './buildRouteTree'
 import {
   createImportName,
   hasAction,
+  hasErrorBoundary,
   hasErrorElement,
   hasLoader,
   normalizeFilenameToRoute,
@@ -99,6 +100,16 @@ function resolveErrorElement(filePath: string, code: string) {
 
     imports.push(
       `import { ErrorElement as ${importName} } from '/${filePath}';`,
+    )
+
+    return `::React.createElement(${importName})::`
+  }
+
+  if (hasErrorBoundary(code)) {
+    const importName = createImportName(filePath, 'ERROR_ELEMENT').toUpperCase()
+
+    imports.push(
+      `import { ErrorBoundary as ${importName} } from '/${filePath}';`,
     )
 
     return `::React.createElement(${importName})::`
