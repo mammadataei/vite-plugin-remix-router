@@ -1,9 +1,20 @@
-import { LoaderFunction, NavLink, useLoaderData } from 'react-router-dom'
+import {
+  LoaderFunction,
+  NavLink,
+  useLoaderData,
+  useRouteError,
+} from 'react-router-dom'
 import { Post } from '@ngneat/falso'
 import { slugify } from '../../../utils'
 
 export const loader: LoaderFunction = async () => {
-  return fetch('/api/posts').then((response) => response.json())
+  const response = await fetch('/api/posts')
+
+  if (response.status === 400) {
+    throw new Response('Oops! Something went wrong.', { status: 400 })
+  }
+
+  return await response.json()
 }
 
 export default function () {
@@ -26,4 +37,9 @@ export default function () {
       </div>
     </div>
   )
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError() as { data: string } | undefined
+  return <div className="text-2xl text-red-600">{error?.data}</div>
 }

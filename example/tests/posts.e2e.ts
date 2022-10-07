@@ -1,7 +1,7 @@
 import { randPost } from '@ngneat/falso'
 import { slugify } from '../src/utils'
 
-it('should fetch and render posts', () => {
+it('should fetch and render all posts', () => {
   const posts = randPost({ length: 10 })
 
   cy.intercept('GET', '/api/posts', (request) => {
@@ -15,7 +15,17 @@ it('should fetch and render posts', () => {
   })
 })
 
-it('should fetch and render posts', () => {
+it('should `ErrorBoundary` when error occurs', () => {
+  cy.intercept('GET', '/api/posts', (request) => {
+    request.reply({ statusCode: 400 })
+  })
+
+  cy.visit('/posts')
+
+  cy.findByText('Oops! Something went wrong.').should('exist')
+})
+
+it('should fetch and render a post by its slug', () => {
   const post = randPost()
 
   cy.intercept('GET', `/api/posts/${slugify(post.title)}`, (request) => {
