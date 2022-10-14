@@ -57,21 +57,21 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@types/node": "^18.7.16",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
-    "@vitest/ui": "^0.23.1",
-    "eslint": "^8.23.0",
+    "@types/node": "^18.8.5",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "@vitest/ui": "^0.24.3",
+    "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.1",
-    "typescript": "^4.8.2",
-    "unbuild": "^0.8.11",
-    "vite": "^3.1.0",
-    "vitest": "^0.23.1"
+    "react-router-dom": "^6.4.2",
+    "typescript": "^4.8.4",
+    "unbuild": "^0.9.1",
+    "vite": "^3.1.8",
+    "vitest": "^0.24.3"
   }
 }

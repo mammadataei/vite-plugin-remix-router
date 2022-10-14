@@ -5,6 +5,8 @@ RouteNode {
   "children": [
     RouteNode {
       "children": [],
+      "isDirectory": undefined,
+      "layoutPath": undefined,
       "name": "$",
       "path": "example/src/routes/$.tsx",
     },
@@ -12,6 +14,8 @@ RouteNode {
       "children": [
         RouteNode {
           "children": [],
+          "isDirectory": undefined,
+          "layoutPath": undefined,
           "name": "login",
           "path": "example/src/routes/__auth/login.tsx",
         },
@@ -27,16 +31,22 @@ RouteNode {
           "children": [
             RouteNode {
               "children": [],
+              "isDirectory": undefined,
+              "layoutPath": undefined,
               "name": "$slug",
               "path": "example/src/routes/__panel/posts/$slug.tsx",
             },
             RouteNode {
               "children": [],
+              "isDirectory": undefined,
+              "layoutPath": undefined,
               "name": "create",
               "path": "example/src/routes/__panel/posts/create.tsx",
             },
             RouteNode {
               "children": [],
+              "isDirectory": undefined,
+              "layoutPath": undefined,
               "name": "index",
               "path": "example/src/routes/__panel/posts/index.tsx",
             },
@@ -52,16 +62,22 @@ RouteNode {
               "children": [
                 RouteNode {
                   "children": [],
+                  "isDirectory": undefined,
+                  "layoutPath": undefined,
                   "name": "index",
                   "path": "example/src/routes/__panel/users/$user/index.tsx",
                 },
                 RouteNode {
                   "children": [],
+                  "isDirectory": undefined,
+                  "layoutPath": undefined,
                   "name": "profile",
                   "path": "example/src/routes/__panel/users/$user/profile.tsx",
                 },
                 RouteNode {
                   "children": [],
+                  "isDirectory": undefined,
+                  "layoutPath": undefined,
                   "name": "settings",
                   "path": "example/src/routes/__panel/users/$user/settings.tsx",
                 },
@@ -73,6 +89,8 @@ RouteNode {
             },
             RouteNode {
               "children": [],
+              "isDirectory": undefined,
+              "layoutPath": undefined,
               "name": "index",
               "path": "example/src/routes/__panel/users/index.tsx",
             },
@@ -90,11 +108,15 @@ RouteNode {
     },
     RouteNode {
       "children": [],
+      "isDirectory": undefined,
+      "layoutPath": undefined,
       "name": "about",
       "path": "example/src/routes/about.tsx",
     },
     RouteNode {
       "children": [],
+      "isDirectory": undefined,
+      "layoutPath": undefined,
       "name": "index",
       "path": "example/src/routes/index.tsx",
     },
