@@ -48,7 +48,7 @@ importers:
       '@testing-library/cypress': ^8.0.3
       '@types/react': ^18.0.18
       '@types/react-dom': ^18.0.6
-      '@unocss/reset': ^0.45.18
+      '@unocss/reset': ^0.46.0
       '@vitejs/plugin-react': ^2.1.0
       cypress: ^10.8.0
       cypress-vite: ^1.1.1
@@ -69,7 +69,7 @@ importers:
       '@testing-library/cypress': 8.0.3_cypress@10.8.0
       '@types/react': 18.0.18
       '@types/react-dom': 18.0.6
-      '@unocss/reset': 0.45.18
+      '@unocss/reset': 0.46.3
       '@vitejs/plugin-react': 2.1.0_vite@3.1.0
       cypress: 10.8.0
       cypress-vite: 1.1.1_vite@3.1.0
@@ -1367,10 +1367,6 @@ packages:
     dependencies:
       '@unocss/core': 0.46.3
       '@unocss/preset-mini': 0.46.3
-    dev: true
-
-  /@unocss/reset/0.45.18:
-    resolution: {integrity: sha512-85T9tdRo86Legeus3HHCMvwUDJRWoUz2hcHrwVeI5J1mCgC0uw/0+BybOyzHBEW4uvFLp9n3tI6Z8x0k+7ZFMQ==}
     dev: true
 
   /@unocss/reset/0.46.3:
