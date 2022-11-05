@@ -1,0 +1,39 @@
+on:
+  push:
+    branches:
+      - main
+
+name: release-please
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: vite-plugin-remix-router
+
+      - uses: actions/checkout@v3
+        if: ${{ steps.release.outputs.release_created }}
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+          run_install: false
+        if: ${{ steps.release.outputs.release_created }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Install dependencies and build
+        run: pnpm i && pnpm build
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Publish to npm
+        run: pnpm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        if: ${{ steps.release.outputs.release_created }}
