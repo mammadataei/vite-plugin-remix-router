@@ -41,6 +41,9 @@
     "build": "tsc && unbuild",
     "test": "vitest --ui --open=false",
     "example": "pnpm --filter example",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
     "style": "prettier --write . && pnpm lint",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "prepare": "husky install",
@@ -72,6 +75,8 @@
     "typescript": "^4.8.4",
     "unbuild": "^0.9.1",
     "vite": "^3.1.8",
-    "vitest": "^0.25.0"
+    "vitepress": "1.0.0-alpha.29",
+    "vitest": "^0.25.0",
+    "vue": "^3.2.45"
   }
 }
