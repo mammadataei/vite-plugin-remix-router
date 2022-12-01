@@ -3,8 +3,8 @@ import { sidebar } from './sidebar'
 import { nav } from './nav'
 
 export default defineConfig({
-  title: 'Remix Router for Vite',
-  description: 'Remix style file-system routing for React and Vite',
+  title: 'Vite Remix Router',
+  description: 'Remix-style file-system routing for React and Vite',
 
   lastUpdated: true,
 

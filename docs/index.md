@@ -1,12 +1,12 @@
 ---
 layout: home
 
-title: Remix Router for Vite
-titleTemplate: Remix style file-system routing for React and Vite
+title: Vite Remix Router
+titleTemplate: Remix-style file-system routing for React and Vite
 
 hero:
-  name: Remix Router for Vite
-  text: Remix style file-system routing for React and Vite
+  name: Vite Remix Router
+  text: Remix-style file-system routing for React and Vite
   actions:
     - theme: brand
       text: Get Started
