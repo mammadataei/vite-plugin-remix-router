@@ -25,7 +25,7 @@ Then, add the plugin to your `vite.config.ts`:
 
 ```ts
 import { defineConfig } from 'vite'
-import { RemixRouter } from 'vite-plugin-remix-router'
+import RemixRouter from 'vite-plugin-remix-router'
 
 export default defineConfig({
   plugins: [
