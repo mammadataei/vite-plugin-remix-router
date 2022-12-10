@@ -47,6 +47,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Build docs
+        run: pnpm docs:build
+
   test:
     runs-on: ubuntu-latest
 
