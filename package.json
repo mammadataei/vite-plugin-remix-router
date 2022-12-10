@@ -19,6 +19,7 @@
   "bugs": {
     "url": "https://github.com/mammadataei/vite-plugin-remix-router/issues"
   },
+  "homepage": "https://vite-remix-router.vercel.app/",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
