@@ -54,7 +54,7 @@ importers:
       '@types/react-dom': ^18.0.6
       '@unocss/reset': ^0.48.0
       '@vitejs/plugin-react': ^3.0.0
-      cypress: ^11.0.0
+      cypress: ^12.0.0
       cypress-vite: ^1.1.1
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -70,12 +70,12 @@ importers:
       react-router-dom: 6.4.1_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@ngneat/falso': 6.1.0
-      '@testing-library/cypress': 8.0.3_cypress@11.0.0
+      '@testing-library/cypress': 8.0.3_cypress@12.2.0
       '@types/react': 18.0.18
       '@types/react-dom': 18.0.6
       '@unocss/reset': 0.48.0
       '@vitejs/plugin-react': 3.0.0_vite@4.0.1
-      cypress: 11.0.0
+      cypress: 12.2.0
       cypress-vite: 1.1.1_vite@4.0.1
       start-server-and-test: 1.14.0
       typescript: 4.8.3
@@ -1183,7 +1183,7 @@ packages:
     resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
     dev: true
 
-  /@testing-library/cypress/8.0.3_cypress@11.0.0:
+  /@testing-library/cypress/8.0.3_cypress@12.2.0:
     resolution: {integrity: sha512-nY2YaSbmuPo5k6kL0iLj/pGPPfka3iwb3kpTx8QN/vOCns92Saz9wfACqB8FJzcR7+lfA4d5HUOWqmTddBzczg==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
@@ -1191,7 +1191,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.19.0
       '@testing-library/dom': 8.18.0
-      cypress: 11.0.0
+      cypress: 12.2.0
     dev: true
 
   /@testing-library/dom/8.18.0:
@@ -2355,9 +2355,9 @@ packages:
       vite: 4.0.1
     dev: true
 
-  /cypress/11.0.0:
-    resolution: {integrity: sha512-mYXGi2Wjmy9shRjAUDugSMOr4uuzE2nl7hXQi3oQkIQsnwwBx2HNB8Vbfsix3A0zyPXlL5jTcbb6rCVWKRaXbg==}
-    engines: {node: '>=12.0.0'}
+  /cypress/12.2.0:
+    resolution: {integrity: sha512-kvl95ri95KK8mAy++tEU/wUgzAOMiIciZSL97LQvnOinb532m7dGvwN0mDSIGbOd71RREtmT9o4h088RjK5pKw==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     hasBin: true
     requiresBuild: true
     dependencies:
