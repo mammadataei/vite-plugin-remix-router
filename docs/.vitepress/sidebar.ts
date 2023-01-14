@@ -8,6 +8,7 @@ export function sidebar(): DefaultTheme.Sidebar {
         { text: 'Introduction', link: '/guides/introduction' },
         { text: 'Getting Started', link: '/guides/getting-started' },
         { text: 'Defining Routes', link: '/guides/defining-routes' },
+        { text: 'Using Data APIs', link: '/guides/using-data-apis' },
       ],
     },
     {
