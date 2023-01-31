@@ -21,7 +21,7 @@ importers:
       typescript: ^4.8.4
       unbuild: ^1.0.0
       vite: ^4.0.0
-      vitepress: 1.0.0-alpha.43
+      vitepress: 1.0.0-alpha.45
       vitest: ^0.25.0
       vue: ^3.2.45
     devDependencies:
@@ -42,7 +42,7 @@ importers:
       typescript: 4.8.4
       unbuild: 1.0.1
       vite: 4.0.1_@types+node@18.8.5
-      vitepress: 1.0.0-alpha.43_adm37bjzd2xkfbz5ky7q7vfsni
+      vitepress: 1.0.0-alpha.45_adm37bjzd2xkfbz5ky7q7vfsni
       vitest: 0.25.0_@vitest+ui@0.25.0
       vue: 3.2.45
 
@@ -1843,6 +1843,10 @@ packages:
   /ansi-regex/6.0.1:
     resolution: {integrity: sha512-n5M855fKb2SsfMIiFFoVrABHJC8QtHwVx+mHWP3QcEqBHYienj5dHSgjbxtC0WEZXYt4wcD6zrQElDPhFuZgfA==}
     engines: {node: '>=12'}
+    dev: true
+
+  /ansi-sequence-parser/1.1.0:
+    resolution: {integrity: sha512-lEm8mt52to2fT8GhciPCGeCXACSz2UwIN4X2e2LJSnZ5uAbn2/dsYdOmUXq0AtWS5cpAupysIneExOgH0Vd2TQ==}
     dev: true
 
   /ansi-styles/3.2.1:
@@ -4685,9 +4689,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /shiki/0.13.0:
-    resolution: {integrity: sha512-QucKtRFyoHgivnde/6tXu+7ZfUhcg02qiFlUSa4X0jQvHVKdtrimWPlbg+q06H2EeNSuj9DcMhtB18GgtDLsmw==}
+  /shiki/0.14.0:
+    resolution: {integrity: sha512-fb9Fg1Yx/ElVJcTqPQIEOSfn7mSZlrT1W3CkymY08lL2Jsi+t7jPcZzKO1lCsQwlSDuyNhHvolnyA2OI4EgJNg==}
     dependencies:
+      ansi-sequence-parser: 1.1.0
       jsonc-parser: 3.2.0
       vscode-oniguruma: 1.7.0
       vscode-textmate: 8.0.0
@@ -5411,8 +5416,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.43_adm37bjzd2xkfbz5ky7q7vfsni:
-    resolution: {integrity: sha512-bguPWYojF371vIfTY8jGmKeFroRe6UVGmDp3+PjTnVq57wTlz9x88OKm6KKF4l/1D7GugkHex5X9wNcOdCmCiQ==}
+  /vitepress/1.0.0-alpha.45_adm37bjzd2xkfbz5ky7q7vfsni:
+    resolution: {integrity: sha512-8AVWdymQqBUPmXmAbpapDDg18iDmkNJ47l5eOklBlAjj3n8P3zDAsBhOWSQ6+Nvm6+/GaZATyAvsrg47JD5Idw==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.2
@@ -5421,7 +5426,7 @@ packages:
       '@vue/devtools-api': 6.5.0
       '@vueuse/core': 9.12.0_vue@3.2.45
       body-scroll-lock: 4.0.0-beta.0
-      shiki: 0.13.0
+      shiki: 0.14.0
       vite: 4.0.4_@types+node@18.8.5
       vue: 3.2.45
     transitivePeerDependencies:
