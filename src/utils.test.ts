@@ -3,6 +3,7 @@ import {
   hasAction,
   hasErrorBoundary,
   hasErrorElement,
+  hasHandle,
   hasLoader,
   isCatchAllRoute,
   isDynamicRoute,
@@ -87,4 +88,20 @@ it('hasErrorBoundary', () => {
   )
   expect(hasErrorBoundary(`const ErrorBoundary = () => {}`)).toEqual(true)
   expect(hasErrorBoundary(`export function ErrorBoundary () {}`)).toEqual(true)
+})
+
+it('hasHandle', () => {
+  expect(hasHandle(`export const handle = {}`)).toEqual(true)
+  expect(hasHandle(`const handle = {}`)).toEqual(true)
+  expect(hasHandle(`export let handle = {}`)).toEqual(true)
+  expect(hasHandle(`let handle = {}`)).toEqual(true)
+  expect(hasHandle(`export var handle = {}`)).toEqual(true)
+  expect(hasHandle(`var handle = {}`)).toEqual(true)
+
+  expect(hasHandle(`export const handleForm =`)).toEqual(false)
+  expect(hasHandle(`const handleForm =`)).toEqual(false)
+  expect(hasHandle(`export let handleForm =`)).toEqual(false)
+  expect(hasHandle(`let handleForm =`)).toEqual(false)
+  expect(hasHandle(`export var handleForm =`)).toEqual(false)
+  expect(hasHandle(`var handleForm =`)).toEqual(false)
 })

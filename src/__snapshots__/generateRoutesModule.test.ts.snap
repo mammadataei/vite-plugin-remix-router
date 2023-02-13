@@ -7,6 +7,11 @@ import { ErrorElement as EXAMPLE_SRC_ROUTES___PANEL_POSTS_$SLUG_ERROR_ELEMENT } 
 import { action as example_src_routes___panel_posts_create_ACTION } from '/example/src/routes/__panel/posts/create.tsx';
 import { loader as example_src_routes___panel_posts_index_LOADER } from '/example/src/routes/__panel/posts/index.tsx';
 import { ErrorBoundary as EXAMPLE_SRC_ROUTES___PANEL_POSTS_INDEX_ERROR_ELEMENT } from '/example/src/routes/__panel/posts/index.tsx';
+import { handle as example_src_routes___panel_users_HANDLE } from '/example/src/routes/__panel/users';
+import { handle as example_src_routes___panel_users_$user_HANDLE } from '/example/src/routes/__panel/users/$user';
+import { handle as example_src_routes___panel_users_$user_index_HANDLE } from '/example/src/routes/__panel/users/$user/index.tsx';
+import { handle as example_src_routes___panel_users_$user_profile_HANDLE } from '/example/src/routes/__panel/users/$user/profile.tsx';
+import { handle as example_src_routes___panel_users_$user_settings_HANDLE } from '/example/src/routes/__panel/users/$user/settings.tsx';
 
 export const routes = [{
   \\"path\\": \\"/\\",
@@ -49,6 +54,7 @@ export const routes = [{
           ]
         },
         {
+          \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users.tsx\\"))),
           \\"path\\": \\"users\\",
           \\"children\\": [
             {
@@ -57,23 +63,28 @@ export const routes = [{
               \\"children\\": [
                 {
                   \\"index\\": true,
+                  \\"handle\\": example_src_routes___panel_users_$user_index_HANDLE,
                   \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users/$user/index.tsx\\")))
                 },
                 {
                   \\"path\\": \\"profile\\",
+                  \\"handle\\": example_src_routes___panel_users_$user_profile_HANDLE,
                   \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users/$user/profile.tsx\\")))
                 },
                 {
                   \\"path\\": \\"settings\\",
+                  \\"handle\\": example_src_routes___panel_users_$user_settings_HANDLE,
                   \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users/$user/settings.tsx\\")))
                 }
-              ]
+              ],
+              \\"handle\\": example_src_routes___panel_users_$user_HANDLE
             },
             {
               \\"index\\": true,
               \\"element\\": React.createElement(React.lazy(() => import(\\"/example/src/routes/__panel/users/index.tsx\\")))
             }
-          ]
+          ],
+          \\"handle\\": example_src_routes___panel_users_HANDLE
         }
       ]
     },

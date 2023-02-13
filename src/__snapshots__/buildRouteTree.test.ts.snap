@@ -96,7 +96,7 @@ RouteNode {
             },
           ],
           "isDirectory": true,
-          "layoutPath": undefined,
+          "layoutPath": "example/src/routes/__panel/users.tsx",
           "name": "users",
           "path": "example/src/routes/__panel/users",
         },
