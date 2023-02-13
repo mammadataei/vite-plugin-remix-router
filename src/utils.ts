@@ -8,6 +8,7 @@ const ROUTE_ERROR_ELEMENT_REGEX =
   /(export\s)?(async\s)?(const|function)\sErrorElement/
 const ROUTE_ERROR_BOUNDARY_REGEX =
   /(export\s)?(async\s)?(const|function)\sErrorBoundary/
+const ROUTE_HANDLE_REGEX = /(export\s)?(const|var|let)\shandle\s/
 
 export function isDirectory(filePath: string) {
   return fs.statSync(filePath).isDirectory()
@@ -66,4 +67,8 @@ export function hasErrorElement(code: string) {
 
 export function hasErrorBoundary(code: string) {
   return ROUTE_ERROR_BOUNDARY_REGEX.test(code)
+}
+
+export function hasHandle(code: string) {
+  return ROUTE_HANDLE_REGEX.test(code)
 }

@@ -6,6 +6,7 @@ import {
   hasAction,
   hasErrorBoundary,
   hasErrorElement,
+  hasHandle,
   hasLoader,
   normalizeFilenameToRoute,
   toAbsolutePath,
@@ -40,12 +41,20 @@ function createRouteObject(node: RouteNode) {
 }
 
 function createLayoutRoute(node: RouteNode): RouteObject {
+  let handle: string | undefined = undefined
+
+  if (node.layoutPath) {
+    const code = fs.readFileSync(toAbsolutePath(node.layoutPath), 'utf8')
+    handle = resolveHandle(node.path, code)
+  }
+
   return {
     element: node.layoutPath && createRouteElement(node.layoutPath),
     path: node.name.startsWith('__')
       ? undefined
       : normalizeFilenameToRoute(node.name),
     children: node.children.map((child) => createRouteObject(child)),
+    handle,
   }
 }
 
@@ -62,6 +71,7 @@ function createPageRoute(node: RouteNode): RouteObject {
     loader: resolveLoader(node.path, code) as LoaderFunction | undefined,
     action: resolveAction(node.path, code) as ActionFunction | undefined,
     errorElement: resolveErrorElement(node.path, code),
+    handle: resolveHandle(node.path, code),
     element: createRouteElement(node.path),
   }
 }
@@ -113,6 +123,18 @@ function resolveErrorElement(filePath: string, code: string) {
     )
 
     return `::React.createElement(${importName})::`
+  }
+
+  return undefined
+}
+
+function resolveHandle(filePath: string, code: string) {
+  if (hasHandle(code)) {
+    const importName = createImportName(filePath, 'HANDLE')
+
+    imports.push(`import { handle as ${importName} } from '/${filePath}';`)
+
+    return `::${importName}::`
   }
 
   return undefined
