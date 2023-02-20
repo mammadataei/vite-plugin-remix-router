@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/mammadataei/vite-plugin-remix-router/compare/v1.1.0...v1.2.0) (2023-02-20)
+
+
+### Features
+
+* add support for route `handle` ([#37](https://github.com/mammadataei/vite-plugin-remix-router/issues/37)) ([85a7b2a](https://github.com/mammadataei/vite-plugin-remix-router/commit/85a7b2a654fa5a43f46d589e18d7893d2b6da8bc))
+
 ## [1.1.0](https://github.com/mammadataei/vite-plugin-remix-router/compare/v1.0.0...v1.1.0) (2022-12-10)
 
 
