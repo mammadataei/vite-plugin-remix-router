@@ -105,3 +105,18 @@ export function ErrorBoundary() {
   return <div>Oops! Something went wrong.</div>
 }
 ```
+
+## Handle
+
+A route handle is useful for adding any application-specific data to routes. To
+learn more about route `handle`s, check out the react-router docs on the
+[Route Handle](https://reactrouter.com/en/main/route/route#handle).
+
+To define a route `handle`, you can export a `handle` object from your route's
+module.
+
+```tsx
+export const handle = {
+  // ...
+}
+```
