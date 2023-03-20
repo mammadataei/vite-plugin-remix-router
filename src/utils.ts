@@ -41,7 +41,7 @@ export function normalizeFilenameToRoute(filename: string) {
 }
 
 export function toAbsolutePath(filePath: string) {
-  return path.join(getOptions().root, filePath)
+  return path.resolve(getOptions().root, filePath)
 }
 
 export function createImportName(filePath: string, postfix: string) {
