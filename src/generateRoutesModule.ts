@@ -1,16 +1,11 @@
 import fs from 'fs'
-import { ActionFunction, LoaderFunction, RouteObject } from 'react-router-dom'
-import type { RouteNode } from './buildRouteTree'
 import {
-  createImportName,
-  hasAction,
-  hasErrorBoundary,
-  hasErrorElement,
-  hasHandle,
-  hasLoader,
-  normalizeFilenameToRoute,
-  toAbsolutePath,
-} from './utils'
+  RouteObject,
+  LazyRouteFunction,
+  NonIndexRouteObject,
+} from 'react-router-dom'
+import type { RouteNode } from './buildRouteTree'
+import { normalizeFilenameToRoute, toAbsolutePath } from './utils'
 
 let imports: Array<string> = []
 
@@ -41,20 +36,16 @@ function createRouteObject(node: RouteNode) {
 }
 
 function createLayoutRoute(node: RouteNode): RouteObject {
-  let handle: string | undefined = undefined
-
-  if (node.layoutPath) {
-    const code = fs.readFileSync(toAbsolutePath(node.layoutPath), 'utf8')
-    handle = resolveHandle(node.path, code)
-  }
-
   return {
-    element: node.layoutPath && createRouteElement(node.layoutPath),
+    lazy: node.layoutPath
+      ? (createLazyRoute(
+          node.layoutPath,
+        ) as unknown as LazyRouteFunction<NonIndexRouteObject>)
+      : undefined,
     path: node.name.startsWith('__')
       ? undefined
       : normalizeFilenameToRoute(node.name),
     children: node.children.map((child) => createRouteObject(child)),
-    handle,
   }
 }
 
@@ -68,74 +59,12 @@ function createPageRoute(node: RouteNode): RouteObject {
 
   return {
     ...path,
-    loader: resolveLoader(node.path, code) as LoaderFunction | undefined,
-    action: resolveAction(node.path, code) as ActionFunction | undefined,
-    errorElement: resolveErrorElement(node.path, code),
-    handle: resolveHandle(node.path, code),
-    element: createRouteElement(node.path),
+    lazy: createLazyRoute(
+      node.path,
+    ) as unknown as LazyRouteFunction<NonIndexRouteObject>,
   }
 }
 
-function createRouteElement(filePath: string) {
-  return `::React.createElement(React.lazy(() => import("/${filePath}")))::`
-}
-
-function resolveLoader(filePath: string, code: string) {
-  if (hasLoader(code)) {
-    const importName = createImportName(filePath, 'LOADER')
-
-    imports.push(`import { loader as ${importName} } from '/${filePath}';`)
-
-    return `::${importName}::`
-  }
-
-  return undefined
-}
-
-function resolveAction(filePath: string, code: string) {
-  if (hasAction(code)) {
-    const importName = createImportName(filePath, 'ACTION')
-
-    imports.push(`import { action as ${importName} } from '/${filePath}';`)
-
-    return `::${importName}::`
-  }
-
-  return undefined
-}
-
-function resolveErrorElement(filePath: string, code: string) {
-  if (hasErrorElement(code)) {
-    const importName = createImportName(filePath, 'ERROR_ELEMENT').toUpperCase()
-
-    imports.push(
-      `import { ErrorElement as ${importName} } from '/${filePath}';`,
-    )
-
-    return `::React.createElement(${importName})::`
-  }
-
-  if (hasErrorBoundary(code)) {
-    const importName = createImportName(filePath, 'ERROR_ELEMENT').toUpperCase()
-
-    imports.push(
-      `import { ErrorBoundary as ${importName} } from '/${filePath}';`,
-    )
-
-    return `::React.createElement(${importName})::`
-  }
-
-  return undefined
-}
-
-function resolveHandle(filePath: string, code: string) {
-  if (hasHandle(code)) {
-    const importName = createImportName(filePath, 'HANDLE')
-
-    imports.push(`import { handle as ${importName} } from '/${filePath}';`)
-
-    return `::${importName}::`
-  }
-
-  return undefined
+function createLazyRoute(filePath: string) {
+  return `::() => import("/${filePath}")::`
 }
