@@ -1,4 +1,3 @@
-import fs from 'fs'
 import {
   RouteObject,
   LazyRouteFunction,
@@ -50,8 +49,6 @@ function createLayoutRoute(node: RouteNode): RouteObject {
 }
 
 function createPageRoute(node: RouteNode): RouteObject {
-  const code = fs.readFileSync(toAbsolutePath(node.path), 'utf8')
-
   const path =
     node.name === 'index'
       ? { index: true }
