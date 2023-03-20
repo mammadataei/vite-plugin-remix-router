@@ -4,7 +4,7 @@ import {
   NonIndexRouteObject,
 } from 'react-router-dom'
 import type { RouteNode } from './buildRouteTree'
-import { normalizeFilenameToRoute, toAbsolutePath } from './utils'
+import { normalizeFilenameToRoute } from './utils'
 
 let imports: Array<string> = []
 
