@@ -30,7 +30,7 @@ export function Component() {
   )
 }
 
-export function ErrorElement() {
+export function ErrorBoundary() {
   const error = useRouteError() as { data: string } | undefined
   return <div className="text-2xl text-red-600">{error?.data}</div>
 }
