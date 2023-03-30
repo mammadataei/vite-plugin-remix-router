@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function () {
+export function Component() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const redirect = useNavigate()

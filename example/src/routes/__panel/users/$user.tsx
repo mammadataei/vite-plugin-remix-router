@@ -1,7 +1,7 @@
 import { NavLink, Outlet, useParams } from 'react-router-dom'
 import { Breadcrumbs } from '../../../components/Breadcrumbs'
 
-export default function () {
+export function Component() {
   const { user } = useParams()
 
   return (

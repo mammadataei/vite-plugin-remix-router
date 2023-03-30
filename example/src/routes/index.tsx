@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom'
 
-export default function () {
+export function Component() {
   return <Navigate to="/login" />
 }
