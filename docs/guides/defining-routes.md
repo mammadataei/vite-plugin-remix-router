@@ -30,7 +30,7 @@ Now let's define the route component:
 ```tsx
 // routes/about.tsx
 
-export default function About() {
+export function Component() {
   return <h1>About</h1>
 }
 ```
@@ -45,7 +45,7 @@ with the name of the route. Let's create a new route for `/users/profile`:
 ```tsx
 // routes/users/profile.tsx
 
-export default function Profile() {
+export function Component() {
   return <h1>Profile</h1>
 }
 ```
@@ -64,7 +64,7 @@ directory:
 // routes/users/$id.tsx
 import { useParams } from 'react-router-dom'
 
-export default function User() {
+export function Component() {
   const { id } = useParams()
 
   return <h1>User {id}</h1>
@@ -81,7 +81,7 @@ index route for the `routes/users` directory:
 ```tsx
 // routes/users/index.tsx
 
-export default function Users() {
+export function Component() {
   return <h1>Users</h1>
 }
 ```
@@ -99,7 +99,7 @@ create a file called `users.tsx` next to the `users` directory:
 // routes/users.tsx
 import { Outlet } from 'react-router-dom'
 
-export default function UsersLayout() {
+export function Component() {
   return (
     <div>
       <h1>Users Layout</h1>
@@ -122,19 +122,19 @@ layout file with a name that starts with a two `_`.
 
 ```tsx
 // routes/__auth/login.tsx
-export default function Login() {
+export function Component() {
   return <h1>Login</h1>
 }
 
 // routes/__auth/register.tsx
-export default function Register() {
+export function Component() {
   return <h1>Register</h1>
 }
 
 // routes/__auth.tsx
 import { Outlet } from 'react-router-dom'
 
-export default function AuthLayout() {
+export function Component() {
   return (
     <div>
       <h1>Auth Layout</h1>
@@ -155,7 +155,7 @@ named `$.tsx`.
 ```tsx
 // routes/$.tsx
 
-export default function NotFound() {
+export function Component() {
   return <h1>Not Found</h1>
 }
 ```

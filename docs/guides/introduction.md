@@ -8,6 +8,7 @@ in your Vite-powered React project.
 
 - Remix-style file-system routing
 - Nested and pathless layout routes
-- Route `actions`, `loaders`, and `errorElement`
+- Route `actions`, `loaders`, `ErrorBoundary`, `handle` - anything supported by
+  [route.lazy](https://reactrouter.com/en/main/route/lazy)!
 - Type-safe and full typescript support
 - Flexible and customizable
