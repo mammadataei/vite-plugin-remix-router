@@ -12,7 +12,7 @@ export const action: ActionFunction = async ({ request }) => {
   }).then((response) => response.json())
 }
 
-export default function CreatePost() {
+export function Component() {
   const data = useActionData() as { message: string }
 
   return (

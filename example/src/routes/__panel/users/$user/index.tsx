@@ -1,4 +1,4 @@
-export default function () {
+export function Component() {
   return <h2 className="text-2xl">Overview</h2>
 }
 

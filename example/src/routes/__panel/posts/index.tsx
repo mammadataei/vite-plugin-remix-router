@@ -17,7 +17,7 @@ export const loader: LoaderFunction = async () => {
   return await response.json()
 }
 
-export default function () {
+export function Component() {
   const { posts } = useLoaderData() as { posts: Post[] }
 
   return (

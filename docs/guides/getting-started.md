@@ -49,7 +49,7 @@ mkdir src/routes && touch src/routes/hello.tsx
 ```tsx
 // src/routes/hello.tsx
 
-export default function Hello() {
+export function Component() {
   return (
     <div>
       <h1>Hello World!</h1>

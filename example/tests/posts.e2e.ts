@@ -38,7 +38,7 @@ it('should fetch and render a post by its slug', () => {
   cy.findByText(post.body).should('exist')
 })
 
-it('should render `ErrorElement` when error occurs', () => {
+it('should render `ErrorBoundary` when error occurs', () => {
   cy.intercept('GET', `/api/posts/hello-world`, (request) => {
     request.reply({
       statusCode: 404,

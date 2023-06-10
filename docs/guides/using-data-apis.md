@@ -24,7 +24,7 @@ export const loader: LoaderFunction = async () => {
   return fetch('/api/posts').then((res) => res.json())
 }
 
-export default function Posts() {
+export function Component() {
   let posts = useLoaderData()
 
   return (
@@ -62,7 +62,7 @@ export const action: ActionFunction = async ({ request }) => {
   }).then((response) => response.json())
 }
 
-export default function CreatePost() {
+export function Component() {
   // this will be the response from the action
   const data = useActionData()
 
@@ -88,18 +88,10 @@ check out the
 [Route Error Elements](https://reactrouter.com/en/main/route/error-element)
 guide.
 
-To define a route `errorElement`, you can export an `ErrorElement` or
-`ErrorBoundary` component from your route's module.
+To define a route `errorElement`, you can export an `ErrorBoundary` component
+from your route's module.
 
 ```tsx
-export function ErrorElement() {
-  // the error data
-  const error = useRouteError()
-  return <div>Oops! Something went wrong.</div>
-}
-
-// or
-
 export function ErrorBoundary() {
   const error = useRouteError()
   return <div>Oops! Something went wrong.</div>

@@ -11,7 +11,7 @@ const users = [
   },
 ]
 
-export default function () {
+export function Component() {
   return (
     <div className=" w-full h-full">
       <h1 className="text-2xl">Users</h1>

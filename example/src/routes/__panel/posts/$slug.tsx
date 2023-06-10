@@ -16,7 +16,7 @@ export const loader: LoaderFunction = async ({ params }) => {
   return await response.json()
 }
 
-export default function () {
+export function Component() {
   const { post } = useLoaderData() as { post: Post }
 
   return (
@@ -30,7 +30,7 @@ export default function () {
   )
 }
 
-export function ErrorElement() {
+export function ErrorBoundary() {
   const error = useRouteError() as { data: string } | undefined
   return <div className="text-2xl text-red-600">{error?.data}</div>
 }
