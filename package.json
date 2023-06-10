@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-remix-router",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Remix style file-system routing for React and Vite",
   "author": "Mohammad Ataei",
   "license": "MIT",

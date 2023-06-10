@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/mammadataei/vite-plugin-remix-router/compare/v1.2.0...v2.0.0) (2023-06-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* needs to update peerDependency `react-router-dom` to `^6.9.0` ---------
+
+### Features
+
+* use react-router `route.lazy` to import routes ([#49](https://github.com/mammadataei/vite-plugin-remix-router/issues/49)) ([ce835de](https://github.com/mammadataei/vite-plugin-remix-router/commit/ce835dec2f09129dda8fe14feed2484bab1668c5))
+
 ## [1.2.0](https://github.com/mammadataei/vite-plugin-remix-router/compare/v1.1.0...v1.2.0) (2023-02-20)
 
 ### Features
