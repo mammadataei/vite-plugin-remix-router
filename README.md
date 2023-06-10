@@ -16,7 +16,7 @@ in your Vite-powered React project.
 
 - Remix-style file-system routing
 - Nested and pathless layout routes
-- Route `actions`, `loaders`
+- Route `actions`, `loaders`, and `errorElement`
 - Type-safe and full typescript support
 - Flexible and customizable
 

@@ -22,7 +22,7 @@ features:
   - title: Nested and pathless layout routes
     details: Custom layouts for each directory even without a path.
 
-  - title: Route `actions`, `loaders`
+  - title: Route `actions`, `loaders`, and `errorElement`
     details:
       Use the react-router^6.4.0 data APIs to preload data and handle errors.
 

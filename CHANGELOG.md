@@ -1,9 +1,5 @@
 # Changelog
 
-## 2.0.0
-
-- Use [route.lazy](https://reactrouter.com/en/main/route/lazy)
-
 ## [1.2.0](https://github.com/mammadataei/vite-plugin-remix-router/compare/v1.1.0...v1.2.0) (2023-02-20)
 
 ### Features

@@ -80,6 +80,24 @@ export function Component() {
 }
 ```
 
+## Error Elements
+
+Error Elements allow you to render a custom error element when an error occurs
+while loading or submitting data. To learn more about route `errorElements`,
+check out the
+[Route Error Elements](https://reactrouter.com/en/main/route/error-element)
+guide.
+
+To define a route `errorElement`, you can export an `ErrorBoundary` component
+from your route's module.
+
+```tsx
+export function ErrorBoundary() {
+  const error = useRouteError()
+  return <div>Oops! Something went wrong.</div>
+}
+```
+
 ## Handle
 
 A route handle is useful for adding any application-specific data to routes. To
