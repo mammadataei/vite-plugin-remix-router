@@ -14,7 +14,7 @@ importers:
       eslint-config-prettier: ^8.5.0
       husky: ^8.0.1
       lint-staged: ^13.0.3
-      prettier: 2.8.4
+      prettier: 2.8.8
       react: ^18.2.0
       react-dom: ^18.2.0
       react-router-dom: ^6.9.0
@@ -35,7 +35,7 @@ importers:
       eslint-config-prettier: 8.5.0_eslint@8.25.0
       husky: 8.0.1
       lint-staged: 13.0.3
-      prettier: 2.8.4
+      prettier: 2.8.8
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-router-dom: 6.9.0_biqbaboplfbrettd7655fr4n2y
@@ -4708,8 +4708,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier/2.8.4:
-    resolution: {integrity: sha512-vIS4Rlc2FNh0BySk3Wkd6xmwxB0FpOndW5fisM5H8hsZSxU2VWVB5CWIkIjWvrHjIhxk2g3bfMKM87zNTrZddw==}
+  /prettier/2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
