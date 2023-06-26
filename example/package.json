@@ -20,7 +20,7 @@
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@unocss/reset": "^0.53.0",
-    "@vitejs/plugin-react": "^3.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
     "cypress": "^12.0.0",
     "cypress-vite": "^1.1.1",
     "start-server-and-test": "^2.0.0",
