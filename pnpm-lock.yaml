@@ -94,8 +94,8 @@ importers:
         specifier: ^18.0.6
         version: 18.0.6
       '@unocss/reset':
-        specifier: ^0.53.0
-        version: 0.53.0
+        specifier: ^0.55.0
+        version: 0.55.0
       '@vitejs/plugin-react':
         specifier: ^4.0.0
         version: 4.0.0(vite@4.0.1)
@@ -1817,12 +1817,12 @@ packages:
       '@unocss/preset-mini': 0.53.1
     dev: true
 
-  /@unocss/reset@0.53.0:
-    resolution: {integrity: sha512-4XJkEtVxUGYp+WX2aRTrZLNp6MEwulBvhhpkAjwfkS+wVdo9lMma0O93TCqJaFeYx7lU8W92APB4n918rz9scA==}
-    dev: true
-
   /@unocss/reset@0.53.1:
     resolution: {integrity: sha512-rkb6mB0JESRFxZXSknZ3TWQ92TmZwpJyF2OV+7GPZrtUk1YBzydH6DfLjLPxyD1xEUtsQsacNHFO7NEmd9WO6A==}
+    dev: true
+
+  /@unocss/reset@0.55.0:
+    resolution: {integrity: sha512-TzpcOCIr16IbFxQ4vrSfEV+A8k0N4mJkhl7J3SZfAxBpNDBKAWDB6VBW9iEQY5aBYDLN3wRx1LskgEoubqBCPQ==}
     dev: true
 
   /@unocss/scope@0.53.1:
