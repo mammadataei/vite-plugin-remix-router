@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@ngneat/falso": "^6.1.0",
-    "@testing-library/cypress": "^9.0.0",
+    "@testing-library/cypress": "^10.0.0",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@unocss/reset": "^0.53.0",
