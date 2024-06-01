@@ -18,7 +18,7 @@ yarn add --dev vite-plugin-remix-router react-router-dom
 ```
 
 ```bash
-pnpm add --dev vite-plugin-remix-router react-router-dom
+pnpm add -D vite-plugin-remix-router react-router-dom
 ```
 
 Then, add the plugin to your `vite.config.ts`:
