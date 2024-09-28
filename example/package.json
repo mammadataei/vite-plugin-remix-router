@@ -19,13 +19,13 @@
     "@testing-library/cypress": "^9.0.0",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
-    "@unocss/reset": "^0.53.0",
+    "@unocss/reset": "^0.63.0",
     "@vitejs/plugin-react": "^4.0.0",
     "cypress": "^12.0.0",
     "cypress-vite": "^1.1.1",
     "start-server-and-test": "^2.0.0",
     "typescript": "^5.0.0",
-    "unocss": "^0.53.0",
+    "unocss": "^0.63.0",
     "vite": "^4.0.0",
     "vite-plugin-remix-router": "workspace:*"
   }
